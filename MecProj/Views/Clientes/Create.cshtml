@@ -1,0 +1,249 @@
+﻿@model MecProj.Models.Cliente
+
+@{
+    ViewData["Title"] = "Create";
+}
+<header>
+    <style>
+        #formulario {
+            margin-right: 50%;
+            margin-top: 2%;
+            width: 800px;
+        }
+    </style>
+</header>
+<h1>Cadastro de Cliente</h1>
+
+
+<hr />
+<div id="formulario">
+
+    <form class="form-group" asp-action="Create">
+
+
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+        <div class="form-row form-content">
+            <div class="form-group col-md-8">
+                <label asp-for="Nome" class="control-label"></label>
+                <input asp-for="Nome" class="form-control" />
+                <span asp-validation-for="Nome" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-4">
+                <label asp-for="Cpf_Cnpj" class="control-label"></label>
+                <input asp-for="Cpf_Cnpj" class="form-control" />
+                <span asp-validation-for="Cpf_Cnpj" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label asp-for="Email" class="control-label"></label>
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-3">
+                <label asp-for="TelefoneCelular" class="control-label"></label>
+                <input asp-for="TelefoneCelular" class="form-control" />
+                <span asp-validation-for="TelefoneCelular" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-3">
+                <label asp-for="TelefoneRecado" class="control-label"></label>
+                <input asp-for="TelefoneRecado" class="form-control" />
+                <span asp-validation-for="TelefoneRecado" class="text-danger"></span>
+            </div>
+        </div>
+
+
+        <div class="form-row">
+            <div class="form-group col-md-4">
+                <label asp-for="Estado" class="control-label"></label>
+                <input asp-for="Estado" class="form-control" />
+                <span asp-validation-for="Estado" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-4">
+                <label asp-for="Cidade" class="control-label"></label>
+                <input asp-for="Cidade" class="form-control" />
+                <span asp-validation-for="Cidade" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-4">
+                <label asp-for="Bairro" class="control-label"></label>
+                <input asp-for="Bairro" class="form-control" />
+                <span asp-validation-for="Bairro" class="text-danger"></span>
+            </div>
+        </div>
+
+
+
+        <div class="form-row">
+            <div class="form-group col-md-5">
+                <label asp-for="Rua" class="control-label"></label>
+                <input asp-for="Rua" class="form-control" />
+                <span asp-validation-for="Rua" class="text-danger"></span>
+            </div>
+
+            <div class="form-group col-md-2">
+                <label asp-for="Numero" class="control-label"></label>
+                <input asp-for="Numero" class="form-control" />
+                <span asp-validation-for="Numero" class="text-danger"></span>
+            </div>
+
+
+            <div class="form-group col-md-5">
+                <label asp-for="Complemento" class="control-label"></label>
+                <input asp-for="Complemento" class="form-control" />
+                <span asp-validation-for="Complemento" class="text-danger"></span>
+            </div>
+        </div>
+      
+
+
+
+
+
+
+
+
+
+
+
+
+        <div class="form-group">
+            <input type="submit" value="Cadastrar" class="btn btn-primary" /> ||
+            <a class="btn btn-info" asp-action="Index">Voltar a lista</a>
+        </div>
+    </form>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+
+
+
+
+
+
+
+
+
+
+
+@*<div class="form-row mb-5">
+
+        <div class="form-group col-md-4">
+            <label for="nome_cad">Nome Completo</label>
+            <input type="text" class="form-control" id="nome_cad" name="nome_cad">
+        </div>
+
+        <div class="form-group col-md-3">
+            <label for="cpf_cad">CPF</label>
+            <input type="text" class="form-control" name="cpf_cad" id="cpf_cad">
+        </div>
+
+        <div class="form-group col-md-3">
+            <label for="datNas_cad">Data Nascimento</label>
+            <input type="date" class="form-control" name="datNas_cad" id="datNas_cad">
+        </div>
+    </div>
+
+
+    <div class="form-row mb-5">
+        <div class="form-group col-sm-4">
+            <label for="cidade_cad">Cidade</label>
+            <input type="text" class="form-control" id="cidade_cad" name="cidade_cad">
+        </div>
+        <div class="form-group col-sm-2">
+            <label for="estado_cad">Estado</label>
+            <select class="form-control" id="estado_cad" name="estado_cad">
+                <option value="" selected></option>
+                <option value="AC">Acre</option>
+                <option value="AL">Alagoas</option>
+                <option value="AP">Amapá</option>
+                <option value="AM">Amazonas</option>
+                <option value="BA">Bahia</option>
+                <option value="CE">Ceará</option>
+                <option value="DF">Distrito Federal</option>
+                <option value="ES">Espírito Santo</option>
+                <option value="GO">Goiás</option>
+                <option value="MA">Maranhão</option>
+                <option value="MT">Mato Grosso</option>
+                <option value="MS">Mato Grosso do Sul</option>
+                <option value="MG">Minas Gerais</option>
+                <option value="PA">Pará</option>
+                <option value="PB">Paraíba</option>
+                <option value="PR">Paraná</option>
+                <option value="PE">Pernambuco</option>
+                <option value="PI">Piauí</option>
+                <option value="RJ">Rio de Janeiro</option>
+                <option value="RN">Rio Grande do Norte</option>
+                <option value="RS">Rio Grande do Sul</option>
+                <option value="RO">Rondônia</option>
+                <option value="RR">Roraima</option>
+                <option value="SC">Santa Catarina</option>
+                <option value="SP">São Paulo</option>
+                <option value="SE">Sergipe</option>
+                <option value="TO">Tocantins</option>
+                <option value="EX">Estrangeiro</option>
+            </select>
+        </div>
+        <div class="form-group col-md-5">
+            <label for="Bairro_cad">Bairro</label>
+            <input type="text" class="form-control" name="Bairro_cad" id="Bairro_cad">
+        </div>
+    </div>
+    <div class="form-row mb-5">
+        <div class="form-group col-md-4">
+            <label for="endereco_cad">Endereço</label>
+            <input type="text" class="form-control" id="endereco_cad" name="endereco_cad">
+        </div>
+        <div class="form-group col-md-3">
+            <label for="numero_cad">Número</label>
+            <input type="number" class="form-control" name="numero_cad" id="numero_cad">
+        </div>
+        <div class="form-group col-md-3">
+            <label for="cep_cad">CEP</label>
+            <input type="text" class="form-control" name="cep_cad" id="cep_cad">
+        </div>
+    </div>
+    <div class="form-row mb-5">
+        <div class="form-group col-md-4">
+            <label for="TelefoneCel_cad">Telefone Celular</label>
+            <input type="text" class="form-control" id="TelefoneCel_cad" name="TelefoneCel_cad" placeholder="(DDD) + Número">
+        </div>
+        <div class="form-group col-md-3">
+            <label for="TelefoneRes_cad">Telefone Residêncial</label>
+            <input type="text" class="form-control" name="TelefoneRes_cad" id="TelefoneRes_cad" placeholder="(DDD) + Número">
+        </div>
+        <div class="form-group col-md-3">
+            <label for="TelefoneRec_cad">Telefone Recado</label>
+            <input type="text" class="form-control" name="TelefoneRec_cad" id="TelefoneRec_cad" placeholder="(DDD) + Número">
+        </div>
+    </div>
+        ------------------------------------------------------------------------------------------------------------------------------------------
+    <div class="form-row mb-5">
+        <div class="form-group col-md-4">
+            <label for="User_cad">Criar Usuário</label>
+            <input type="text" class="form-control" id="User_cad" name="User_cad" placeholder="Crie um usuário">
+        </div>
+        <div class="form-group col-md-3">
+            <label for="Senha_cad">Senha</label>
+            <input type="text" class="form-control" name="Senha_cad" id="Senha_cad" placeholder="Crie uma senha">
+        </div>
+        <div class="form-group col-md-3">
+            <label for="datacad_cad">Data do Cadastro</label>
+            <input type="text" class="form-control" name="datacad_cad" id="datacad_cad" value="@DateTime.Today.ToShortDateString()" readonly>
+        </div>
+    </div>
+
+
+
+    <div class="form-row mb-5">
+        <div id="BtnAtualizar">
+            <button type="submit" id='success' class="btn btn-success">
+                CADASTRAR
+            </button>
+        </div>
+    </div>
+    </form>*@

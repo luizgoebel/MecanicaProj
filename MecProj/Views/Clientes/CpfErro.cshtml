@@ -1,0 +1,21 @@
+﻿
+@{
+    ViewData["Title"] = "CpfErro";
+}
+<header>
+    <style>
+        #erro{
+            margin-right: 10%;
+            margin-left:30%;
+            margin-top:5%;
+        }
+    </style>
+</header>
+<h1>ERRO <i class="fas fa-exclamation-triangle"></i></h1>
+<h5>O <b>CPF</b> Informado já está cadastrado, Por favor verifique os dados !</h5>
+<hr /><br />
+<div id="erro" class="form-group">
+    <a class="btn btn-primary" asp-action="Create">Cadastrar</a> ||
+    <a class="btn btn-info" asp-action="Index">Voltar a lista</a>
+</div>
+
