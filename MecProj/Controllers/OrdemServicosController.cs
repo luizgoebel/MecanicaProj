@@ -1,9 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using MecProj.Data;
 using MecProj.Models;
@@ -25,6 +23,11 @@ namespace MecProj.Controllers
             return View(await _context.Servico.ToListAsync());
         }
 
+        public static List<Cliente> GetClientes()
+        {
+            List<Cliente> lista = new List<Cliente>();
+            return lista;
+        }
 
 
         // GET: OrdemServicos/Details/5
@@ -60,6 +63,7 @@ namespace MecProj.Controllers
         {
             if (ModelState.IsValid)
             {
+                //var Cliente = await _context.Cliente.Select(x => x.Nome).ToListAsync();
                 _context.Add(ordemServico);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));

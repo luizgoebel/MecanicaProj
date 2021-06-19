@@ -34,7 +34,14 @@
 
 
 
-
+        <div class="form-group col-md-8">
+            <label class="control-label"></label>
+            <select class="form-control  basic">
+                <option value="">Selecionar</option>
+                <option value="@Html.DisplayNameFor(model => model.Descricao)" selected>@Html.DisplayNameFor(model => model.Descricao)</option>
+            </select>
+            <span asp-validation-for="Cliente" class="text-danger"></span>
+        </div>
 
 
 

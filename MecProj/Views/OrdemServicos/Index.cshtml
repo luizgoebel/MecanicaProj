@@ -72,11 +72,15 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Service)
+                @Html.DisplayNameFor(model => model.Id)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Descricao)
+                @Html.DisplayNameFor(model => model.Cliente)
             </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Service)
+            </th>
+
             <th>
                 @Html.DisplayNameFor(model => model.Entrada)
             </th>
@@ -89,25 +93,29 @@
     <tbody>
         @foreach (var item in Model)
         {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Service)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Descricao)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Entrada)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Situacao)
-                </td>
-                <td>
-                    <a asp-action="Edit" asp-route-id="@item.Id"> <i class="far fa-edit"></i> Editar</a> |
-                    <a asp-action="Details" asp-route-id="@item.Id"> <i class="fas fa-search"></i> Detalhes</a> |
-                    <a asp-action="Delete" asp-route-id="@item.Id"> <i class="far fa-trash-alt"></i> Deletar</a>
-                </td>
-            </tr>
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cliente)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Service)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.Entrada)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Situacao)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id"> <i class="far fa-edit"></i> Editar</a> |
+                <a asp-action="Details" asp-route-id="@item.Id"> <i class="fas fa-search"></i> Detalhes</a> |
+                @*<a asp-action="Delete" asp-route-id="@item.Id"> <i class="far fa-trash-alt"></i> Deletar</a>*@
+            </td>
+        </tr>
         }
     </tbody>
 </table>

@@ -19,13 +19,17 @@ namespace MecProj.Controllers
         {
             _context = context;
         }
-        //public static List<Cliente> Cliente { get; set; }
+
 
         // GET: Clientes
         public async Task<IActionResult> Index()
         {
             return View(await _context.Cliente.ToListAsync());
         }
+
+        
+
+
 
 
 

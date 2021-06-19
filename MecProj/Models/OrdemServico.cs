@@ -11,13 +11,14 @@ namespace MecProj.Models
     {
         [Key]
         public int Id { get; set; }
+        //public Cliente Cliente { get; set; }
         public string Service { get; set; }
         public string Descricao { get; set; }
         public string Pecas { get; set; }
         [DataType(DataType.Date)]
         public DateTime Entrada { get; set; }
         public string Situacao { get; set; }
-        public Cliente Cliente { get; set; }
+        public virtual List<Cliente> Cliente { get; set; }
 
     }
 }
