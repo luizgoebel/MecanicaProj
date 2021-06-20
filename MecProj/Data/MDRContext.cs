@@ -2,6 +2,7 @@
 using MecProj.Models;
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.ChangeTracking;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity.ModelConfiguration.Conventions;
@@ -15,6 +16,11 @@ namespace MecProj.Data
         public MDRContext(DbContextOptions<MDRContext> options) : base(options)
         {
         }
+
+        //public override Cliente Entry(Cliente Nome)
+        //{
+        //    return base.Entry(Nome);
+        //}
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             base.OnConfiguring(optionsBuilder);
@@ -35,7 +41,7 @@ namespace MecProj.Data
         public DbSet<MecProj.Models.Fornecedor> Fornecedor { get; set; }
 
 
-       
+
 
     }
 

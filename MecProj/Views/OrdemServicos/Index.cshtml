@@ -56,9 +56,9 @@
 
 <div id="nav">
     <form class="form-inline">
-        <a asp-action="Create" class="btn btn-dark">Novo Cliente</a>
+        <a asp-action="Create" class="btn btn-dark">Emitir Nova OS</a>
         <div id="consulta" class="form-inline">
-            <input type="text" class="w-100 form-control product-search br-30 mr-sm-2" name="consulta" id="txt_consulta" placeholder="Consultar" onkeyup="myFunction()">
+            <input type="text" class="w-100 form-control product-search br-30 mr-sm-2 modal-title" name="consulta" id="txt_consulta" placeholder="Consultar" onkeyup="myFunction()">
         </div>
     </form>
 </div>
@@ -93,29 +93,29 @@
     <tbody>
         @foreach (var item in Model)
         {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Id)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Cliente)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Service)
-            </td>
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Cliente)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Service)
+                </td>
 
-            <td>
-                @Html.DisplayFor(modelItem => item.Entrada)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Situacao)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id"> <i class="far fa-edit"></i> Editar</a> |
-                <a asp-action="Details" asp-route-id="@item.Id"> <i class="fas fa-search"></i> Detalhes</a> |
-                @*<a asp-action="Delete" asp-route-id="@item.Id"> <i class="far fa-trash-alt"></i> Deletar</a>*@
-            </td>
-        </tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Entrada)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Situacao)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id"> <i class="far fa-edit"></i> Editar</a> |
+                    <a asp-action="Details" asp-route-id="@item.Id"> <i class="fas fa-search"></i> Detalhes</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id"> <i class="far fa-trash-alt"></i> Deletar</a>
+                </td>
+            </tr>
         }
     </tbody>
 </table>

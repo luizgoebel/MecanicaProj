@@ -16,72 +16,37 @@
         }
     </style>
 </header>
-<h1>Emitor Ordem Serviço</h1>
+<h1>Emitir Ordem Serviço</h1>
 
 <hr />
 
 
 <div id="formulario">
-
-
-
-
-
     <form class="form-group" asp-action="Create">
-
-
-
         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-
-
-
-
         <div class="form-row">
-
-
-
-            <div class="form-group col-md-8">
-                    <label asp-for="Cliente" class="control-label"></label>
-                    <select asp-for="Cliente" class="form-group">
-                        @foreach (var cli in MecProj.Controllers.OrdemServicosController.GetClientes())
-                        {
-                            <option value="@cli.Nome">@cli.Nome</option>
-                        }
-                    </select>
-                    <span asp-validation-for="Cliente" class="text-danger"></span>
-                </div>
-
-
-
-            @*<div class="form-group col-md-8">
-                <label class="control-label">@Html.DropDownList("list", ViewData["list"] as SelectList)</label>
-                <select id="list" name="list" class="form-control  basic">
-                    <option value="" selected>Selecionar</option>
-                    <option value="@Html.DisplayNameFor(model => model.Cliente.Select(x=>x.Nome))">@Html.DisplayNameFor(model => model.Cliente.Select(x=>x.Nome))</option>
-                </select>
+            <div id="consulta" class="form-group col-md-8">
+                <label asp-for="Cliente" class="control-label"></label>
+                <input asp-for="Cliente" class="form-control" placeholder="Nome Cliente" />
                 <span asp-validation-for="Cliente" class="text-danger"></span>
-            </div>*@
-
-
-
-
-
-
+            </div>
 
 
             <div class="form-group col-md-8">
                 <label asp-for="Service" class="control-label"></label>
-                <input asp-for="Service" class="form-control" />
+                <input asp-for="Service" class="form-control" placeholder="Serviço Realizado" />
                 <span asp-validation-for="Service" class="text-danger"></span>
             </div>
             <div class="form-group col-md-8">
                 <label asp-for="Descricao" class="control-label"></label>
-                <input asp-for="Descricao" class="form-control" />
+                <input asp-for="Descricao" class="form-control" placeholder="Descrição do Serviço" />
                 <span asp-validation-for="Descricao" class="text-danger"></span>
             </div>
             <div class="form-group col-md-8">
                 <label asp-for="Pecas" class="control-label"></label>
-                <input asp-for="Pecas" class="form-control" />
+                @*<input asp-for="Pecas" class="form-control" placeholder="Peças Novas" />*@
+                <textarea asp-for="Pecas" class="form-control" placeholder="Digite aqui as peças"></textarea>
+
                 <span asp-validation-for="Pecas" class="text-danger"></span>
             </div>
             <div class="form-group col-md-8">
@@ -92,8 +57,8 @@
             <div class="form-group col-md-8">
                 <label asp-for="Situacao" class="control-label"></label>
                 <select asp-for="Situacao" class="form-control">
-                    <option value="pendente" selected>Pendente</option>
-                    <option value="concluido">Concluído</option>
+                    <option value="Pendente" selected>Pendente</option>
+                    <option value="Concluído">Concluído</option>
                 </select>
                 <span asp-validation-for="Situacao" class="text-danger"></span>
             </div>

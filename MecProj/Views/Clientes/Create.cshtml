@@ -12,6 +12,63 @@
         }
     </style>
 </header>
+
+
+
+
+
+<script>
+    var json_cidades = {
+        "estados": [
+            {
+                "sigla": "SC",
+                "nome": "Santa Catarina",
+                "cidades": [
+                    "Blumenau",
+                    "Indaial",
+                    "Gaspar",
+                    "Pomerode",
+                    "Rio do Sul"
+                ]
+            },
+            {
+                "sigla": "PR",
+                "nome": "Parana",
+                "cidades": [
+                    "Curitiba"
+                ]
+            }
+        ]
+    };
+    // FIM DO .js
+
+    function buscaCidades(e) {
+        document.querySelector("#cidade").innerHTML = '';
+        var cidade_select = document.querySelector("#cidade");
+
+        var num_estados = json_cidades.estados.length;
+        var j_index = -1;
+
+        // aqui eu pego o index do Estado dentro do JSON
+        for (var x = 0; x < num_estados; x++) {
+            if (json_cidades.estados[x].sigla == e) {
+                j_index = x;
+            }
+        }
+        if (j_index != -1) {
+            // aqui eu percorro todas as cidades e crio os OPTIONS
+            json_cidades.estados[j_index].cidades.forEach(function (cidade) {
+                var cid_opts = document.createElement('option');
+                cid_opts.setAttribute('value', cidade)
+                cid_opts.innerHTML = cidade;
+                cidade_select.appendChild(cid_opts);
+            });
+        } else {
+            document.querySelector("#cidade").innerHTML = '';
+        }
+    }
+</script>
+
 <h1>Cadastro de Cliente</h1>
 
 
@@ -55,15 +112,25 @@
         </div>
 
 
+
+
         <div class="form-row">
             <div class="form-group col-md-4">
                 <label asp-for="Estado" class="control-label"></label>
-                <input asp-for="Estado" class="form-control" />
+                <select id="estado" class="form-control" onchange="buscaCidades(this.value)">
+                    <option value="" hidden>SELECIONAR</option>
+                    <option value="SC">Santa Catarina</option>
+                    <option value="PR">Paraná</option>
+                </select>
                 <span asp-validation-for="Estado" class="text-danger"></span>
             </div>
+
+
             <div class="form-group col-md-4">
                 <label asp-for="Cidade" class="control-label"></label>
-                <input asp-for="Cidade" class="form-control" />
+                <select class="form-control" asp-for="Cidade" id="cidade" onchange="buscaBairro(this.value)">
+                    <option value="" hidden>SELECIONAR</option>
+                </select>
                 <span asp-validation-for="Cidade" class="text-danger"></span>
             </div>
             <div class="form-group col-md-4">
@@ -72,6 +139,11 @@
                 <span asp-validation-for="Bairro" class="text-danger"></span>
             </div>
         </div>
+
+
+
+
+
 
 
 
@@ -95,7 +167,6 @@
                 <span asp-validation-for="Complemento" class="text-danger"></span>
             </div>
         </div>
-      
 
 
 
@@ -107,14 +178,15 @@
 
 
 
-
-        <div class="form-group">
-            <input type="submit" value="Cadastrar" class="btn btn-primary" /> ||
-            <a class="btn btn-info" asp-action="Index">Voltar a lista</a>
-        </div>
     </form>
-</div>
 
+
+    <div class="form-group">
+        <input type="submit" value="Cadastrar" class="btn btn-primary" /> ||
+        <a class="btn btn-info" asp-action="Index">Voltar a lista</a>
+    </div>
+
+</div>
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}

@@ -4,14 +4,16 @@ using MecProj.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace MecProj.Migrations
 {
     [DbContext(typeof(MDRContext))]
-    partial class MDRContextModelSnapshot : ModelSnapshot
+    [Migration("20210619232242_caa")]
+    partial class caa
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -63,6 +65,9 @@ namespace MecProj.Migrations
                         .HasMaxLength(5)
                         .HasColumnType("int");
 
+                    b.Property<int?>("OrdemServicoId")
+                        .HasColumnType("int");
+
                     b.Property<string>("Rua")
                         .IsRequired()
                         .HasMaxLength(50)
@@ -81,6 +86,8 @@ namespace MecProj.Migrations
 
                     b.HasIndex("Cpf_Cnpj")
                         .IsUnique();
+
+                    b.HasIndex("OrdemServicoId");
 
                     b.ToTable("Clientes");
                 });
@@ -143,9 +150,6 @@ namespace MecProj.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("Cliente")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("Descricao")
                         .HasMaxLength(30)
                         .HasColumnType("nvarchar(30)");
@@ -191,6 +195,13 @@ namespace MecProj.Migrations
                     b.ToTable("Recibos");
                 });
 
+            modelBuilder.Entity("MecProj.Models.Cliente", b =>
+                {
+                    b.HasOne("MecProj.Models.OrdemServico", null)
+                        .WithMany("Cliente")
+                        .HasForeignKey("OrdemServicoId");
+                });
+
             modelBuilder.Entity("MecProj.Models.Recibo", b =>
                 {
                     b.HasOne("MecProj.Models.Cliente", "Cliente")
@@ -206,6 +217,11 @@ namespace MecProj.Migrations
                     b.Navigation("Cliente");
 
                     b.Navigation("OrdemServico");
+                });
+
+            modelBuilder.Entity("MecProj.Models.OrdemServico", b =>
+                {
+                    b.Navigation("Cliente");
                 });
 #pragma warning restore 612, 618
         }

@@ -900,3 +900,4 @@ C:\Users\goebe\Source\Repos\MecanicaProj\MecProj\bin\Debug\net5.0\runtimes\win-x
 C:\Users\goebe\Source\Repos\MecanicaProj\MecProj\bin\Debug\net5.0\runtimes\win-x86\native\sni.dll
 C:\Users\goebe\Source\Repos\MecanicaProj\MecProj\bin\Debug\net5.0\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
 C:\Users\goebe\Source\Repos\MecanicaProj\MecProj\bin\Debug\net5.0\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\goebe\Source\Repos\MecanicaProj\MecProj\obj\Debug\net5.0\MecProj.csproj.AssemblyReference.cache

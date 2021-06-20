@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using MecProj.Data;
 using MecProj.Models;
+using System.Data.Common;
 
 namespace MecProj.Controllers
 {
@@ -23,11 +24,19 @@ namespace MecProj.Controllers
             return View(await _context.Servico.ToListAsync());
         }
 
-        public static List<Cliente> GetClientes()
-        {
-            List<Cliente> lista = new List<Cliente>();
-            return lista;
-        }
+
+        //public static List<Cliente> GetClientes()
+        //{
+        //    List<Cliente> lista = new();
+
+
+        //    Cliente cli = new()
+        //    {
+        //        Nome = "olavo"
+        //    };
+        //    lista.Add(cli);
+        //    return lista;
+        //}
 
 
         // GET: OrdemServicos/Details/5
@@ -155,5 +164,6 @@ namespace MecProj.Controllers
         {
             return _context.Servico.Any(e => e.Id == id);
         }
+
     }
 }
