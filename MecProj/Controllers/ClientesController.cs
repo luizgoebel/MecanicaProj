@@ -27,7 +27,7 @@ namespace MecProj.Controllers
             return View(await _context.Cliente.ToListAsync());
         }
 
-        
+
 
 
 
