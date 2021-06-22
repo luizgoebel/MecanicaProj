@@ -31,14 +31,10 @@ namespace MecProj.Controllers
 
         //public IActionResult GetClientes()
         //{
-        //    var Lista2 = from x in _context.Cliente
-        //                 orderby x.Nome
-        //                 select x;
-        //    ViewBag.Client = new SelectList(Lista2.AsNoTracking(), "ClienteId", "Nome", "");
-
+        //    ViewBag.ListaCli = _context.Cliente.Select(x => x.Nome).ToList();
+        //    //ViewBag.ListaCli = _context.Cliente.ToList();
         //    return View();
         //}
-
 
 
         // GET: OrdemServicos/Details/5
@@ -74,7 +70,6 @@ namespace MecProj.Controllers
         {
             if (ModelState.IsValid)
             {
-                //var Cliente = await _context.Cliente.Select(x => x.Nome).ToListAsync();
                 _context.Add(ordemServico);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));

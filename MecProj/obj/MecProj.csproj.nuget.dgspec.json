@@ -1,24 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Luiz Goebel\\Source\\Repos\\MecanicaProj\\MecProj\\MecProj.csproj": {}
+    "C:\\Users\\goebe\\Source\\Repos\\MecanicaProj\\MecProj\\MecProj.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Luiz Goebel\\Source\\Repos\\MecanicaProj\\MecProj\\MecProj.csproj": {
+    "C:\\Users\\goebe\\Source\\Repos\\MecanicaProj\\MecProj\\MecProj.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Luiz Goebel\\Source\\Repos\\MecanicaProj\\MecProj\\MecProj.csproj",
+        "projectUniqueName": "C:\\Users\\goebe\\Source\\Repos\\MecanicaProj\\MecProj\\MecProj.csproj",
         "projectName": "MecProj",
-        "projectPath": "C:\\Users\\Luiz Goebel\\Source\\Repos\\MecanicaProj\\MecProj\\MecProj.csproj",
-        "packagesPath": "C:\\Users\\Luiz Goebel\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Luiz Goebel\\Source\\Repos\\MecanicaProj\\MecProj\\obj\\",
+        "projectPath": "C:\\Users\\goebe\\Source\\Repos\\MecanicaProj\\MecProj\\MecProj.csproj",
+        "packagesPath": "C:\\Users\\goebe\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\goebe\\Source\\Repos\\MecanicaProj\\MecProj\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Luiz Goebel\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\goebe\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],

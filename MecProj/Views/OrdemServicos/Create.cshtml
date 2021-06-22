@@ -1,10 +1,13 @@
 ﻿@model MecProj.Models.OrdemServico
-
-
-
 @{
     ViewData["Title"] = "Create";
 }
+
+<script>
+    function ListaCli() {
+        Nome = "Luiz"
+    }
+</script>
 
 
 <header>
@@ -17,10 +20,7 @@
     </style>
 </header>
 <h1>Emitir Ordem Serviço</h1>
-
 <hr />
-
-
 <div id="formulario">
     <form class="form-group" asp-action="Create">
         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
@@ -31,19 +31,6 @@
                 <input asp-for="Cliente" class="form-control" placeholder="Nome Cliente" />
                 <span asp-validation-for="Cliente" class="text-danger"></span>
             </div>
-
-
-            @*<div class="form-group col-md-9">
-                <label class="control-label">CNPJ ou CPF</label>
-                <input class="form-control" placeholder="Numero documento" />
-                <span class="text-danger"></span>
-            </div>
-            <div class="form-group col-md-9">
-                <label class="control-label">Telefone</label>
-                <input class="form-control" placeholder="Numero celular cliente" />
-                <span class="text-danger"></span>
-            </div>*@
-
 
 
 
