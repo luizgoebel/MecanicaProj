@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MecProj.Migrations
 {
     [DbContext(typeof(MDRContext))]
-    [Migration("20210619232242_caa")]
-    partial class caa
+    [Migration("20210622190739_Inicial")]
+    partial class Inicial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -42,10 +42,8 @@ namespace MecProj.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
-                    b.Property<string>("Cpf_Cnpj")
-                        .IsRequired()
-                        .HasMaxLength(19)
-                        .HasColumnType("nvarchar(19)");
+                    b.Property<string>("Cpf")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Email")
                         .HasMaxLength(30)
@@ -65,9 +63,6 @@ namespace MecProj.Migrations
                         .HasMaxLength(5)
                         .HasColumnType("int");
 
-                    b.Property<int?>("OrdemServicoId")
-                        .HasColumnType("int");
-
                     b.Property<string>("Rua")
                         .IsRequired()
                         .HasMaxLength(50)
@@ -84,12 +79,56 @@ namespace MecProj.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("Cpf_Cnpj")
-                        .IsUnique();
+                    b.HasIndex("Cpf")
+                        .IsUnique()
+                        .HasFilter("[Cpf] IS NOT NULL");
 
-                    b.HasIndex("OrdemServicoId");
+                    b.ToTable("Cliente");
+                });
 
-                    b.ToTable("Clientes");
+            modelBuilder.Entity("MecProj.Models.Empresa", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Bairro")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Cidade")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Cnpj")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Complemento")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Email")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Estado")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Numero")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Razão_Social")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Rua")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Telefone_Celular")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Telefone_Recado")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Empresa");
                 });
 
             modelBuilder.Entity("MecProj.Models.Fornecedor", b =>
@@ -140,7 +179,7 @@ namespace MecProj.Migrations
                     b.HasIndex("CNPJ")
                         .IsUnique();
 
-                    b.ToTable("Fornecedores");
+                    b.ToTable("Fornecedore");
                 });
 
             modelBuilder.Entity("MecProj.Models.OrdemServico", b =>
@@ -149,6 +188,9 @@ namespace MecProj.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Cliente")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Descricao")
                         .HasMaxLength(30)
@@ -171,7 +213,7 @@ namespace MecProj.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Servicos");
+                    b.ToTable("Servico");
                 });
 
             modelBuilder.Entity("MecProj.Models.Recibo", b =>
@@ -192,14 +234,7 @@ namespace MecProj.Migrations
 
                     b.HasIndex("ClienteId");
 
-                    b.ToTable("Recibos");
-                });
-
-            modelBuilder.Entity("MecProj.Models.Cliente", b =>
-                {
-                    b.HasOne("MecProj.Models.OrdemServico", null)
-                        .WithMany("Cliente")
-                        .HasForeignKey("OrdemServicoId");
+                    b.ToTable("Recibo");
                 });
 
             modelBuilder.Entity("MecProj.Models.Recibo", b =>
@@ -217,11 +252,6 @@ namespace MecProj.Migrations
                     b.Navigation("Cliente");
 
                     b.Navigation("OrdemServico");
-                });
-
-            modelBuilder.Entity("MecProj.Models.OrdemServico", b =>
-                {
-                    b.Navigation("Cliente");
                 });
 #pragma warning restore 612, 618
         }

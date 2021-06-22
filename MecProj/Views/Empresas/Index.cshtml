@@ -1,4 +1,4 @@
-﻿@model IEnumerable<MecProj.Models.Cliente>
+﻿@model IEnumerable<MecProj.Models.Empresa>
 
 @{
     ViewData["Title"] = "Index";
@@ -26,8 +26,6 @@
         }
     </style>
 </header>
-
-
 <script>
     function myFunction() {
         var input, filter, table, tr, td, cell, i, j;
@@ -53,7 +51,6 @@
     }
 </script>
 
-
 <div id="nav">
     <form class="form-inline">
         <a asp-action="Create" class="btn btn-dark">Novo Cliente</a>
@@ -62,33 +59,26 @@
         </div>
     </form>
 </div>
-
-
-
-<h5 class="">Pessoa Física</h5>
-
+    <h5 class="">Pessoa Jurídica</h5>
 <table class="table table-hover table-dark mb-4" id="tabela">
     <thead>
         <tr>
             <th>
-                #
+                @Html.DisplayNameFor(model => model.Id)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Nome)
+                @Html.DisplayNameFor(model => model.Razão_Social)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Cpf)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.TelefoneCelular)
+                @Html.DisplayNameFor(model => model.Cnpj)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Email)
             </th>
-
-
-
-            <th>Ação</th>
+            <th>
+                @Html.DisplayNameFor(model => model.Telefone_Celular)
+            </th>
+            <th>AÇÃO</th>
         </tr>
     </thead>
     <tbody>
@@ -99,18 +89,17 @@
                     @Html.DisplayFor(modelItem => item.Id)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Nome)
+                    @Html.DisplayFor(modelItem => item.Razão_Social)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Cpf)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.TelefoneCelular)
+                    @Html.DisplayFor(modelItem => item.Cnpj)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Email)
                 </td>
-
+                <td>
+                    @Html.DisplayFor(modelItem => item.Telefone_Celular)
+                </td>
                 <td>
                     <a asp-action="Edit" asp-route-id="@item.Id"> <i class="far fa-edit"></i> Editar</a> |
                     <a asp-action="Details" asp-route-id="@item.Id"> <i class="fas fa-search"></i> Detalhes</a> |
@@ -120,4 +109,3 @@
         }
     </tbody>
 </table>
-

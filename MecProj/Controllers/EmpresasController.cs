@@ -1,39 +1,31 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using MecProj.Data;
 using MecProj.Models;
-using System.Collections.Generic;
-using Microsoft.Data.SqlClient;
-using System.Data;
 
 namespace MecProj.Controllers
 {
-    public class ClientesController : Controller
+    public class EmpresasController : Controller
     {
         private readonly MDRContext _context;
 
-        public ClientesController(MDRContext context)
+        public EmpresasController(MDRContext context)
         {
             _context = context;
         }
 
-
-        // GET: Clientes
+        // GET: Empresas
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Cliente.ToListAsync());
+            return View(await _context.Empresa.ToListAsync());
         }
 
-
-
-
-
-
-
-        // GET: Clientes/Details/5
+        // GET: Empresas/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -41,53 +33,39 @@ namespace MecProj.Controllers
                 return NotFound();
             }
 
-            var cliente = await _context.Cliente
+            var empresa = await _context.Empresa
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (cliente == null)
+            if (empresa == null)
             {
                 return NotFound();
             }
 
-            return View(cliente);
+            return View(empresa);
         }
 
-        // GET: Clientes/Create
+        // GET: Empresas/Create
         public IActionResult Create()
         {
             return View();
         }
-        [HttpPost]
-        public IActionResult CpfErro()
-        {
-            return View();
-        }
 
-        // POST: Clientes/Create
+        // POST: Empresas/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Nome,Cpf,Email,TelefoneCelular,TelefoneRecado,Estado,Cidade,Bairro,Rua,Numero,Complemento")] Cliente cliente)
+        public async Task<IActionResult> Create([Bind("Id,Razão_Social,Cnpj,Email,Telefone_Celular,Telefone_Recado,Estado,Cidade,Bairro,Rua,Numero,Complemento")] Empresa empresa)
         {
-
-            try
+            if (ModelState.IsValid)
             {
-                if (ModelState.IsValid)
-                {
-                    _context.Add(cliente);
-                    await _context.SaveChangesAsync();
-                    return RedirectToAction(nameof(Index));
-                }
-                return View(cliente);
-
+                _context.Add(empresa);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
             }
-            catch (Exception)
-            {
-                return View("CpfErro");
-            }
+            return View(empresa);
         }
 
-        // GET: Clientes/Edit/5
+        // GET: Empresas/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -95,30 +73,22 @@ namespace MecProj.Controllers
                 return NotFound();
             }
 
-            var cliente = await _context.Cliente.FindAsync(id);
-            if (cliente == null)
+            var empresa = await _context.Empresa.FindAsync(id);
+            if (empresa == null)
             {
                 return NotFound();
             }
-            return View(cliente);
+            return View(empresa);
         }
 
-
-
-
-
-
-
-
-
-        // POST: Clientes/Edit/5
+        // POST: Empresas/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Nome,Cpf,Email,TelefoneCelular,TelefoneRecado,Estado,Cidade,Bairro,Rua,Numero,Complemento")] Cliente cliente)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Razão_Social,Cnpj,Email,Telefone_Celular,Telefone_Recado,Estado,Cidade,Bairro,Rua,Numero,Complemento")] Empresa empresa)
         {
-            if (id != cliente.Id)
+            if (id != empresa.Id)
             {
                 return NotFound();
             }
@@ -127,12 +97,12 @@ namespace MecProj.Controllers
             {
                 try
                 {
-                    _context.Update(cliente);
+                    _context.Update(empresa);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!ClienteExists(cliente.Id))
+                    if (!EmpresaExists(empresa.Id))
                     {
                         return NotFound();
                     }
@@ -143,10 +113,10 @@ namespace MecProj.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(cliente);
+            return View(empresa);
         }
 
-        // GET: Clientes/Delete/5
+        // GET: Empresas/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -154,30 +124,30 @@ namespace MecProj.Controllers
                 return NotFound();
             }
 
-            var cliente = await _context.Cliente
+            var empresa = await _context.Empresa
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (cliente == null)
+            if (empresa == null)
             {
                 return NotFound();
             }
 
-            return View(cliente);
+            return View(empresa);
         }
 
-        // POST: Clientes/Delete/5
+        // POST: Empresas/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var cliente = await _context.Cliente.FindAsync(id);
-            _context.Cliente.Remove(cliente);
+            var empresa = await _context.Empresa.FindAsync(id);
+            _context.Empresa.Remove(empresa);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool ClienteExists(int id)
+        private bool EmpresaExists(int id)
         {
-            return _context.Cliente.Any(e => e.Id == id);
+            return _context.Empresa.Any(e => e.Id == id);
         }
     }
 }

@@ -3,18 +3,18 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace MecProj.Migrations
 {
-    public partial class Ajustes : Migration
+    public partial class Inicial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Clientes",
+                name: "Cliente",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Nome = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
-                    Cpf_Cnpj = table.Column<string>(type: "nvarchar(19)", maxLength: 19, nullable: false),
+                    Cpf = table.Column<string>(type: "nvarchar(450)", nullable: true),
                     Email = table.Column<string>(type: "nvarchar(30)", maxLength: 30, nullable: true),
                     TelefoneCelular = table.Column<string>(type: "nvarchar(17)", maxLength: 17, nullable: false),
                     TelefoneRecado = table.Column<string>(type: "nvarchar(17)", maxLength: 17, nullable: true),
@@ -27,11 +27,34 @@ namespace MecProj.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Clientes", x => x.Id);
+                    table.PrimaryKey("PK_Cliente", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
-                name: "Fornecedores",
+                name: "Empresa",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Razão_Social = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Cnpj = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Email = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Telefone_Celular = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Telefone_Recado = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Estado = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Cidade = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Bairro = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Rua = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Numero = table.Column<int>(type: "int", nullable: false),
+                    Complemento = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Empresa", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Fornecedore",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -47,15 +70,16 @@ namespace MecProj.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Fornecedores", x => x.Id);
+                    table.PrimaryKey("PK_Fornecedore", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
-                name: "Servicos",
+                name: "Servico",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
+                    Cliente = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Service = table.Column<string>(type: "nvarchar(200)", maxLength: 200, nullable: false),
                     Descricao = table.Column<string>(type: "nvarchar(30)", maxLength: 30, nullable: true),
                     Pecas = table.Column<string>(type: "nvarchar(max)", nullable: true),
@@ -64,11 +88,11 @@ namespace MecProj.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Servicos", x => x.Id);
+                    table.PrimaryKey("PK_Servico", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
-                name: "Recibos",
+                name: "Recibo",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false),
@@ -78,52 +102,56 @@ namespace MecProj.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Recibos", x => x.Id);
+                    table.PrimaryKey("PK_Recibo", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Recibos_Clientes_ClienteId",
+                        name: "FK_Recibo_Cliente_ClienteId",
                         column: x => x.ClienteId,
-                        principalTable: "Clientes",
+                        principalTable: "Cliente",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
-                        name: "FK_Recibos_Servicos_Id",
+                        name: "FK_Recibo_Servico_Id",
                         column: x => x.Id,
-                        principalTable: "Servicos",
+                        principalTable: "Servico",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Clientes_Cpf_Cnpj",
-                table: "Clientes",
-                column: "Cpf_Cnpj",
-                unique: true);
+                name: "IX_Cliente_Cpf",
+                table: "Cliente",
+                column: "Cpf",
+                unique: true,
+                filter: "[Cpf] IS NOT NULL");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Fornecedores_CNPJ",
-                table: "Fornecedores",
+                name: "IX_Fornecedore_CNPJ",
+                table: "Fornecedore",
                 column: "CNPJ",
                 unique: true);
 
             migrationBuilder.CreateIndex(
-                name: "IX_Recibos_ClienteId",
-                table: "Recibos",
+                name: "IX_Recibo_ClienteId",
+                table: "Recibo",
                 column: "ClienteId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Fornecedores");
+                name: "Empresa");
 
             migrationBuilder.DropTable(
-                name: "Recibos");
+                name: "Fornecedore");
 
             migrationBuilder.DropTable(
-                name: "Clientes");
+                name: "Recibo");
 
             migrationBuilder.DropTable(
-                name: "Servicos");
+                name: "Cliente");
+
+            migrationBuilder.DropTable(
+                name: "Servico");
         }
     }
 }

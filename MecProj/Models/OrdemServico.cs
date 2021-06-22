@@ -18,6 +18,8 @@ namespace MecProj.Models
         [DataType(DataType.Date)]
         public DateTime Entrada { get; set; }
         public string Situacao { get; set; }
+        //public long? ClienteID { get; set; }
+        //public virtual Cliente Cliente { get; set; }
 
     }
 }

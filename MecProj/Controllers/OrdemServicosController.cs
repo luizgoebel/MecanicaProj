@@ -6,6 +6,10 @@ using Microsoft.EntityFrameworkCore;
 using MecProj.Data;
 using MecProj.Models;
 using System.Data.Common;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using System;
+using Microsoft.AspNetCore.Mvc.RazorPages;
+
 
 namespace MecProj.Controllers
 {
@@ -25,18 +29,16 @@ namespace MecProj.Controllers
         }
 
 
-        //public static List<Cliente> GetClientes()
+        //public IActionResult GetClientes()
         //{
-        //    List<Cliente> lista = new();
+        //    var Lista2 = from x in _context.Cliente
+        //                 orderby x.Nome
+        //                 select x;
+        //    ViewBag.Client = new SelectList(Lista2.AsNoTracking(), "ClienteId", "Nome", "");
 
-
-        //    Cliente cli = new()
-        //    {
-        //        Nome = "olavo"
-        //    };
-        //    lista.Add(cli);
-        //    return lista;
+        //    return View();
         //}
+
 
 
         // GET: OrdemServicos/Details/5

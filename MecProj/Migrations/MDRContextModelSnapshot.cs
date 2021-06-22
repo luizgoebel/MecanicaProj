@@ -40,10 +40,8 @@ namespace MecProj.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
-                    b.Property<string>("Cpf_Cnpj")
-                        .IsRequired()
-                        .HasMaxLength(19)
-                        .HasColumnType("nvarchar(19)");
+                    b.Property<string>("Cpf")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Email")
                         .HasMaxLength(30)
@@ -79,10 +77,56 @@ namespace MecProj.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("Cpf_Cnpj")
-                        .IsUnique();
+                    b.HasIndex("Cpf")
+                        .IsUnique()
+                        .HasFilter("[Cpf] IS NOT NULL");
 
-                    b.ToTable("Clientes");
+                    b.ToTable("Cliente");
+                });
+
+            modelBuilder.Entity("MecProj.Models.Empresa", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Bairro")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Cidade")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Cnpj")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Complemento")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Email")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Estado")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Numero")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Razão_Social")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Rua")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Telefone_Celular")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Telefone_Recado")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Empresa");
                 });
 
             modelBuilder.Entity("MecProj.Models.Fornecedor", b =>
@@ -133,7 +177,7 @@ namespace MecProj.Migrations
                     b.HasIndex("CNPJ")
                         .IsUnique();
 
-                    b.ToTable("Fornecedores");
+                    b.ToTable("Fornecedor");
                 });
 
             modelBuilder.Entity("MecProj.Models.OrdemServico", b =>
@@ -167,7 +211,7 @@ namespace MecProj.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Servicos");
+                    b.ToTable("Servico");
                 });
 
             modelBuilder.Entity("MecProj.Models.Recibo", b =>
@@ -188,7 +232,7 @@ namespace MecProj.Migrations
 
                     b.HasIndex("ClienteId");
 
-                    b.ToTable("Recibos");
+                    b.ToTable("Recibo");
                 });
 
             modelBuilder.Entity("MecProj.Models.Recibo", b =>

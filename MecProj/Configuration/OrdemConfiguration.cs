@@ -12,7 +12,7 @@ namespace MecProj.Configuration
     {
         public void Configure(EntityTypeBuilder<OrdemServico> builder)
         {
-            builder.ToTable("Servicos");
+            builder.ToTable("Servico");
             builder.Property(x => x.Service).HasMaxLength(200).IsRequired();
             builder.Property(x => x.Descricao).HasMaxLength(30);
             builder.Property(x => x.Entrada).IsRequired();

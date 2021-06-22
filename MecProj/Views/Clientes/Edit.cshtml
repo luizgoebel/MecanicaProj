@@ -16,11 +16,8 @@
 
 
 <div id="formulario">
-
     <form class="form-group" asp-action="Edit">
-
         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-
         <input type="hidden" asp-for="Id" />
 
         <div class="form-row form-content">
@@ -30,9 +27,9 @@
                 <span asp-validation-for="Nome" class="text-danger"></span>
             </div>
             <div class="form-group col-md-5">
-                <label asp-for="Cpf_Cnpj" class="control-label"></label>
-                <input asp-for="Cpf_Cnpj" class="form-control" placeholder="CPF ou CNPJ" />
-                <span asp-validation-for="Cpf_Cnpj" class="text-danger"></span>
+                <label asp-for="Cpf" class="control-label"></label>
+                <input asp-for="Cpf" class="form-control cpf-mask" placeholder="Ex.: 000.000.000-00" onKeyPress="MascaraGenerica(this, 'CPF')" />
+                <span asp-validation-for="Cpf" class="text-danger"></span>
             </div>
             <div class="form-group col-xl-7">
                 <label asp-for="Email" class="control-label"></label>
@@ -41,18 +38,21 @@
             </div>
             <div class="form-group col-xl-5">
                 <label asp-for="TelefoneCelular" class="control-label"></label>
-                <input asp-for="TelefoneCelular" class="form-control" placeholder="(xx)xxxxx-xxxx" />
+                <input asp-for="TelefoneCelular" class="form-control" placeholder="(00) 00000-0000" onKeyPress="MascaraGenerica(this, 'TELEFONE')" />
                 <span asp-validation-for="TelefoneCelular" class="text-danger"></span>
             </div>
             <div class="form-group col-xl-6">
                 <label asp-for="TelefoneRecado" class="control-label"></label>
-                <input asp-for="TelefoneRecado" class="form-control" placeholder="(xx)xxxxx-xxxx" />
+                <input asp-for="TelefoneCelular" class="form-control" placeholder="Fixo ou Celular" onKeyPress="MascaraGenerica(this, 'TELEFONE')" />
                 <span asp-validation-for="TelefoneRecado" class="text-danger"></span>
             </div>
 
             <div class="form-group col-xl-6">
                 <label asp-for="Estado" class="control-label"></label>
-                <input asp-for="Estado" class="form-control" />
+                <select asp-for="Estado" class="form-control" >
+                    <option value="SC">Santa Catarina</option>
+                    <option value="PR">Paraná</option>
+                </select>
                 <span asp-validation-for="Estado" class="text-danger"></span>
             </div>
             <div class="form-group col-xl-6">

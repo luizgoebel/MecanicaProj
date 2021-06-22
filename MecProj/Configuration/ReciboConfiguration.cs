@@ -12,7 +12,7 @@ namespace MecProj.Configuration
     {
         public void Configure(EntityTypeBuilder<Recibo> builder)
         {
-            builder.ToTable("Recibos");
+            builder.ToTable("Recibo");
             builder.Property(x => x.Saida).IsRequired();
             builder.Property(x => x.Valor).IsRequired();
         }

@@ -1,13 +1,6 @@
 ﻿using MecProj.Configuration;
 using MecProj.Models;
-using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.ChangeTracking;
-using System;
-using System.Collections.Generic;
-using System.Data.Entity.ModelConfiguration.Conventions;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace MecProj.Data
 {
@@ -39,6 +32,7 @@ namespace MecProj.Data
         public DbSet<MecProj.Models.Cliente> Cliente { get; set; }
         public DbSet<MecProj.Models.OrdemServico> Servico { get; set; }
         public DbSet<MecProj.Models.Fornecedor> Fornecedor { get; set; }
+        public DbSet<MecProj.Models.Empresa> Empresa { get; set; }
 
 
 

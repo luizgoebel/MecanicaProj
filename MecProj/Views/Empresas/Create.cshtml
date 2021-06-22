@@ -1,4 +1,4 @@
-﻿@model MecProj.Models.Cliente
+﻿@model MecProj.Models.Empresa
 
 @{
     ViewData["Title"] = "Create";
@@ -171,28 +171,24 @@
 </script>
 
 
-
-<h1>Cadastro de Cliente</h1>
-
-
+<h1>Cadastro de Pessoa Jurídica</h1>
 <hr />
+
 <div id="formulario">
 
     <form class="form-group" asp-action="Create">
-
-
         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
         <div class="form-row form-content">
             <div class="form-group col-md-7">
-                <label asp-for="Nome" class="control-label"></label>
-                <input asp-for="Nome" class="form-control" placeholder="Nome Completo" />
-                <span asp-validation-for="Nome" class="text-danger"></span>
+                <label asp-for="Razão_Social" class="control-label"></label>
+                <input asp-for="Razão_Social" class="form-control" placeholder="Nome Empresa" />
+                <span asp-validation-for="Razão_Social" class="text-danger"></span>
             </div>
             <div class="form-group col-md-5">
-                <label asp-for="Cpf" class="control-label"></label>
-                <input asp-for="Cpf" class="form-control cpf-mask" placeholder="Ex.: 000.000.000-00" onKeyPress="MascaraGenerica(this, 'CPF')"/>
-                <span asp-validation-for="Cpf" class="text-danger"></span>
+                <label asp-for="Cnpj" class="control-label"></label>
+                <input asp-for="Cnpj" class="form-control cpf-mask" placeholder="Ex.: 000.000.000-00" onKeyPress="MascaraGenerica(this, 'CNPJ')" />
+                <span asp-validation-for="Cnpj" class="text-danger"></span>
             </div>
             <div class="form-group col-xl-7">
                 <label asp-for="Email" class="control-label"></label>
@@ -200,14 +196,14 @@
                 <span asp-validation-for="Email" class="text-danger"></span>
             </div>
             <div class="form-group col-xl-5">
-                <label asp-for="TelefoneCelular" class="control-label"></label>
-                <input asp-for="TelefoneCelular" class="form-control" placeholder="(00) 00000-0000" onKeyPress="MascaraGenerica(this, 'TELEFONE')" />
-                <span asp-validation-for="TelefoneCelular" class="text-danger"></span>
+                <label asp-for="Telefone_Celular" class="control-label"></label>
+                <input asp-for="Telefone_Celular" class="form-control" placeholder="(00) 00000-0000" onKeyPress="MascaraGenerica(this, 'TELEFONE')" />
+                <span asp-validation-for="Telefone_Celular" class="text-danger"></span>
             </div>
             <div class="form-group col-xl-6">
-                <label asp-for="TelefoneRecado" class="control-label"></label>
-                <input asp-for="TelefoneRecado" class="form-control" placeholder="Fixo ou Celular" onKeyPress="MascaraGenerica(this, 'TELEFONE')" />
-                <span asp-validation-for="TelefoneRecado" class="text-danger"></span>
+                <label asp-for="Telefone_Recado" class="control-label"></label>
+                <input asp-for="Telefone_Recado" class="form-control" placeholder="Fixo ou Celular" onKeyPress="MascaraGenerica(this, 'TELEFONE')" />
+                <span asp-validation-for="Telefone_Recado" class="text-danger"></span>
             </div>
             <div class="form-group col-xl-6">
                 <label asp-for="Estado" class="control-label"></label>
@@ -220,7 +216,7 @@
             </div>
             <div class="form-group col-xl-6">
                 <label asp-for="Cidade" class="control-label"></label>
-                <select class="form-control" asp-for="Cidade" id="cidade" onchange="buscaBairro(this.value)">
+                <select class="form-control" asp-for="Cidade" id="cidade">
                     <option value="" hidden>SELECIONAR</option>
                 </select>
                 <span asp-validation-for="Cidade" class="text-danger"></span>
@@ -250,12 +246,7 @@
             <input type="submit" value="Cadastrar" class="btn btn-primary" /> ||
             <a class="btn btn-info" asp-action="Index">Voltar a lista</a>
         </div>
-
     </form>
-
-
 </div>
 
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}
+

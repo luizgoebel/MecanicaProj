@@ -1,26 +1,26 @@
-﻿@model MecProj.Models.Cliente
+﻿@model MecProj.Models.Empresa
 
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = "Delete";
 }
 
-<h1>Detalhes</h1>
 
+<h3>Deseja Realmente Deletar este Cliente ?</h3>
 <div>
-    <h4>Cliente <b>@Model.Nome</b></h4>
+    <h4>Cliente <b>@Model.Razão_Social</b> <i class="far fa-hand-point-left"></i></h4>
     <hr />
     <dl class="row">
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Nome)
+            @Html.DisplayNameFor(model => model.Razão_Social)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Nome)
+            @Html.DisplayFor(model => model.Razão_Social)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Cpf)
+            @Html.DisplayNameFor(model => model.Cnpj)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Cpf)
+            @Html.DisplayFor(model => model.Cnpj)
         </dd>
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Email)
@@ -29,16 +29,16 @@
             @Html.DisplayFor(model => model.Email)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.TelefoneCelular)
+            @Html.DisplayNameFor(model => model.Telefone_Celular)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.TelefoneCelular)
+            @Html.DisplayFor(model => model.Telefone_Celular)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.TelefoneRecado)
+            @Html.DisplayNameFor(model => model.Telefone_Recado)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.TelefoneRecado)
+            @Html.DisplayFor(model => model.Telefone_Recado)
         </dd>
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Estado)
@@ -77,8 +77,10 @@
             @Html.DisplayFor(model => model.Complemento)
         </dd>
     </dl>
-</div>
-<div>
-    <a class="btn btn-primary" asp-action="Edit" asp-route-id="@Model.Id">Editar</a> |
-    <a class="btn btn-info" asp-action="Index">Voltar a lista</a>
+
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="Deletar" class="btn btn-danger" /> |
+        <a class="btn btn-info" asp-action="Index">Voltar a lista</a>
+    </form>
 </div>

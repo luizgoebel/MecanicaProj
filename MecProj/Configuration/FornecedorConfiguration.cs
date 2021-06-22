@@ -12,7 +12,7 @@ namespace MecProj.Configuration
     {
         public void Configure(EntityTypeBuilder<Fornecedor> builder)
         {
-            builder.ToTable("Fornecedores");
+            builder.ToTable("Fornecedor");
             builder.Property(x => x.Nome).HasMaxLength(50).IsRequired();
             builder.HasIndex(x => x.CNPJ).IsUnique();
             builder.Property(x => x.CNPJ).HasMaxLength(19).IsRequired();

@@ -12,10 +12,9 @@ namespace MecProj.Configuration
     {
         public void Configure(EntityTypeBuilder<Cliente> builder)
         {
-            builder.ToTable("Clientes");
+            builder.ToTable("Cliente");
             builder.Property(x => x.Nome).HasMaxLength(50).IsRequired();
-            builder.HasIndex(x => x.Cpf_Cnpj).IsUnique();
-            builder.Property(x => x.Cpf_Cnpj).HasMaxLength(19).IsRequired();
+            builder.HasIndex(x => x.Cpf).IsUnique();
             builder.Property(x => x.Estado).HasMaxLength(50).IsRequired();
             builder.Property(x => x.Cidade).HasMaxLength(50).IsRequired();
             builder.Property(x => x.Bairro).HasMaxLength(50).IsRequired();
