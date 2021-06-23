@@ -1,0 +1,235 @@
+﻿@model MecProj.Models.OrdemServico
+
+@{
+    ViewData["Title"] = "Create";
+}
+<header>
+    <style>
+        #formulario {
+            margin-right: 50%;
+            margin-top: 2%;
+            width: 800px;
+        }
+    </style>
+</header>
+<script>
+    var json_cidades = {
+        "estados": [
+            {
+                "sigla": "SC",
+                "nome": "Santa Catarina",
+                "cidades": [
+                    "Blumenau",
+                    "Indaial",
+                    "Gaspar",
+                    "Pomerode",
+                    "Rio do Sul"
+                ]
+            }
+            ,
+            {
+                "sigla": "PR",
+                "nome": "Parana",
+                "cidades": [
+                    "Curitiba"
+                ]
+            }
+        ]
+    };
+    // FIM DO .js
+
+    function buscaCidades(e) {
+        document.querySelector("#cidade").innerHTML = '';
+        var cidade_select = document.querySelector("#cidade");
+
+        var num_estados = json_cidades.estados.length;
+        var j_index = -1;
+
+        // aqui eu pego o index do Estado dentro do JSON
+        for (var x = 0; x < num_estados; x++) {
+            if (json_cidades.estados[x].sigla == e) {
+                j_index = x;
+            }
+        }
+        if (j_index != -1) {
+            // aqui eu percorro todas as cidades e crio os OPTIONS
+            json_cidades.estados[j_index].cidades.forEach(function (cidade) {
+                var cid_opts = document.createElement('option');
+                cid_opts.setAttribute('value', cidade)
+                cid_opts.innerHTML = cidade;
+                cidade_select.appendChild(cid_opts);
+            });
+        } else {
+            document.querySelector("#cidade").innerHTML = '';
+        }
+    };
+
+    /////
+    function MascaraInteiro(num) {
+        var er = /[^0-9]/;
+        er.lastIndex = 0;
+        var campo = num;
+        if (er.test(campo.value)) {///verifica se é string, caso seja então apaga
+            var texto = $(campo).val();
+            $(campo).val(texto.substring(0, texto.length - 1));
+            return false;
+        } else {
+            return true;
+        }
+    }
+    function MascaraFloat(num) {
+        var er = /[^0-9.,]/;
+        er.lastIndex = 0;
+        var campo = num;
+        if (er.test(campo.value)) {///verifica se é string, caso seja então apaga
+            var texto = $(campo).val();
+            $(campo).val(texto.substring(0, texto.length - 1));
+            return false;
+        } else {
+            return true;
+        }
+    }
+    //formata de forma generica os campos
+    function formataCampo(campo, Mascara) {
+        var er = /[^0-9/ (),.-]/;
+        er.lastIndex = 0;
+
+        if (er.test(campo.value)) {///verifica se é string, caso seja então apaga
+            var texto = $(campo).val();
+            $(campo).val(texto.substring(0, texto.length - 1));
+        }
+        var boleanoMascara;
+        var exp = /\-|\.|\/|\(|\)| /g
+        var campoSoNumeros = campo.value.toString().replace(exp, "");
+        var posicaoCampo = 0;
+        var NovoValorCampo = "";
+        var TamanhoMascara = campoSoNumeros.length;
+        for (var i = 0; i <= TamanhoMascara; i++) {
+            boleanoMascara = ((Mascara.charAt(i) == "-") || (Mascara.charAt(i) == ".")
+                || (Mascara.charAt(i) == "/"))
+            boleanoMascara = boleanoMascara || ((Mascara.charAt(i) == "(")
+                || (Mascara.charAt(i) == ")") || (Mascara.charAt(i) == " "))
+            if (boleanoMascara) {
+                NovoValorCampo += Mascara.charAt(i);
+                TamanhoMascara++;
+            } else {
+                NovoValorCampo += campoSoNumeros.charAt(posicaoCampo);
+                posicaoCampo++;
+            }
+        }
+        campo.value = NovoValorCampo;
+        ////LIMITAR TAMANHO DE CARACTERES NO CAMPO DE ACORDO COM A MASCARA//
+        if (campo.value.length > Mascara.length) {
+            var texto = $(campo).val();
+            $(campo).val(texto.substring(0, texto.length - 1));
+        }
+        //////////////
+        return true;
+    }
+
+    function MascaraMoeda(i) {
+        var v = i.value.replace(/\D/g, '');
+        v = (v / 100).toFixed(2) + '';
+        v = v.replace(".", ",");
+        v = v.replace(/(\d)(\d{3})(\d{3}),/g, "$1.$2.$3,");
+        v = v.replace(/(\d)(\d{3}),/g, "$1.$2,");
+        i.value = v;
+    }
+
+    function MascaraGenerica(seletor, tipoMascara) {
+        setTimeout(function () {
+            if (tipoMascara == 'CPFCNPJ') {
+                if (seletor.value.length <= 14) { //cpf
+                    formataCampo(seletor, '000.000.000-00');
+                } else { //cnpj
+                    formataCampo(seletor, '00.000.000/0000-00');
+                }
+            } else if (tipoMascara == 'DATA') {
+                formataCampo(seletor, '00/00/0000');
+            } else if (tipoMascara == 'CEP') {
+                formataCampo(seletor, '00.000-000');
+            } else if (tipoMascara == 'TELEFONE') {
+                formataCampo(seletor, '(00) 000000000');
+            } else if (tipoMascara == 'INTEIRO') {
+                MascaraInteiro(seletor);
+            } else if (tipoMascara == 'FLOAT') {
+                MascaraFloat(seletor);
+            } else if (tipoMascara == 'CPF') {
+                formataCampo(seletor, '000.000.000-00');
+            } else if (tipoMascara == 'CNPJ') {
+                formataCampo(seletor, '00.000.000/0000-00');
+            } else if (tipoMascara == 'MOEDA') {
+                MascaraMoeda(seletor);
+            }
+        }, 200);
+    }
+</script>
+
+
+
+<h1>Cadastro de Ordens</h1>
+<hr />
+
+<div id="formulario">
+    <form asp-action="Create">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+
+        <div class="form-row form-content">
+            <div class="form-group col-md-7">
+                <label asp-for="Cliente" class="control-label"></label>
+                @*<input asp-for="Cliente" class="form-control" />*@
+                @foreach (var item in MecProj.Controllers.ClientesController.GetClientes())
+                {
+                    <select class="form-control">
+                        <option value="" hidden selected>Selecionar</option>
+                        <option value="@item.Nome">@item.Nome</option>
+                        <option value="">teste</option>
+                    </select>
+                }
+                <span asp-validation-for="Cliente" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-7">
+                <label asp-for="Service" class="control-label"></label>
+                <input asp-for="Service" class="form-control" />
+                <span asp-validation-for="Service" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-7">
+                <label asp-for="Descricao" class="control-label"></label>
+                <input asp-for="Descricao" class="form-control" />
+                <span asp-validation-for="Descricao" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-7">
+                <label asp-for="Pecas" class="control-label"></label>
+                @*<input asp-for="Pecas" class="form-control" />*@
+                <textarea class="form-control" asp-for="Pecas"></textarea>
+                <span asp-validation-for="Pecas" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-7">
+                <label asp-for="Entrada" class="control-label"></label>
+                <input asp-for="Entrada" class="form-control" />
+                <span asp-validation-for="Entrada" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-7">
+                <label asp-for="Situacao" class="control-label"></label>
+                <select asp-for="Situacao" class="form-control">
+                    <option value="Pendente" selected>Pendente</option>
+                    <option value="Não Aprovado">Não Aprovado</option>
+                    <option value="Concluído">Concluído</option>
+                </select>
+                <span asp-validation-for="Situacao" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <input type="submit" value="Cadastrar" class="btn btn-primary" /> ||
+            <a class="btn btn-info" asp-action="Index">Voltar a lista</a>
+        </div>
+    </form>
+</div>
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

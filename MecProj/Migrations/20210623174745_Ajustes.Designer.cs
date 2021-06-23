@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MecProj.Migrations
 {
     [DbContext(typeof(MDRContext))]
-    [Migration("20210622212343_Initial")]
-    partial class Initial
+    [Migration("20210623174745_Ajustes")]
+    partial class Ajustes
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -43,9 +43,11 @@ namespace MecProj.Migrations
                         .HasColumnType("nvarchar(50)");
 
                     b.Property<string>("Cpf")
+                        .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Email")
+                        .IsRequired()
                         .HasMaxLength(30)
                         .HasColumnType("nvarchar(30)");
 
@@ -61,9 +63,6 @@ namespace MecProj.Migrations
 
                     b.Property<int>("Numero")
                         .HasMaxLength(5)
-                        .HasColumnType("int");
-
-                    b.Property<int?>("OrdemServicoId")
                         .HasColumnType("int");
 
                     b.Property<string>("Rua")
@@ -83,10 +82,7 @@ namespace MecProj.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("Cpf")
-                        .IsUnique()
-                        .HasFilter("[Cpf] IS NOT NULL");
-
-                    b.HasIndex("OrdemServicoId");
+                        .IsUnique();
 
                     b.ToTable("Cliente");
                 });
@@ -194,7 +190,12 @@ namespace MecProj.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<string>("Cliente")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Descricao")
+                        .IsRequired()
                         .HasMaxLength(30)
                         .HasColumnType("nvarchar(30)");
 
@@ -239,13 +240,6 @@ namespace MecProj.Migrations
                     b.ToTable("Recibo");
                 });
 
-            modelBuilder.Entity("MecProj.Models.Cliente", b =>
-                {
-                    b.HasOne("MecProj.Models.OrdemServico", null)
-                        .WithMany("Cliente")
-                        .HasForeignKey("OrdemServicoId");
-                });
-
             modelBuilder.Entity("MecProj.Models.Recibo", b =>
                 {
                     b.HasOne("MecProj.Models.Cliente", "Cliente")
@@ -261,11 +255,6 @@ namespace MecProj.Migrations
                     b.Navigation("Cliente");
 
                     b.Navigation("OrdemServico");
-                });
-
-            modelBuilder.Entity("MecProj.Models.OrdemServico", b =>
-                {
-                    b.Navigation("Cliente");
                 });
 #pragma warning restore 612, 618
         }

@@ -15,6 +15,8 @@ namespace MecProj.Models
         public Cliente Cliente { get; set; }
         public virtual OrdemServico OrdemServico { get; set; }
         public DateTime Saida { get; set; }
+        [Required(ErrorMessage ="Informa o valor do Recibo")]
+        [Range(0.1, Double.PositiveInfinity)]
         [DataType(DataType.Currency)]
         public decimal Valor { get; set; }
 

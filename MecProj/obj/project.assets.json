@@ -1485,6 +1485,15 @@
           }
         }
       },
+      "SqlMigrations/1.0.0.117": {
+        "type": "package",
+        "compile": {
+          "lib/DbUp.dll": {}
+        },
+        "runtime": {
+          "lib/DbUp.dll": {}
+        }
+      },
       "System.Buffers/4.5.0": {
         "type": "package",
         "compile": {
@@ -5239,6 +5248,27 @@
         "runtimes/win-x86/native/sni.dll",
         "useSharedDesignerContext.txt",
         "version.txt"
+      ]
+    },
+    "SqlMigrations/1.0.0.117": {
+      "sha512": "EKh6ZVut3AvoZZ14KfHoaabgxvNxU4o0yJmRlLi/E+Cg9VjXfLX7NR1/hOYoxbG14uH4eC5DxMVNuSwjh2dRCQ==",
+      "type": "package",
+      "path": "sqlmigrations/1.0.0.117",
+      "hasTools": true,
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Content/App.config.transform",
+        "Content/Deploy.ps1",
+        "Content/DeployFailed.ps1",
+        "Content/Program.cs.pp",
+        "lib/DbUp.dll",
+        "sqlmigrations.1.0.0.117.nupkg.sha512",
+        "sqlmigrations.nuspec",
+        "tools/DeployUtils.psm1",
+        "tools/GenerateMigration.psm1",
+        "tools/Init.ps1",
+        "tools/Install.ps1"
       ]
     },
     "System.Buffers/4.5.0": {
@@ -9114,27 +9144,30 @@
       "Microsoft.NETCore.App >= 2.2.8",
       "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 5.0.2",
       "Polly >= 7.2.2",
+      "SqlMigrations >= 1.0.0.117",
       "System.ComponentModel.Annotations >= 5.0.0"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\goebe\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\Luiz Goebel\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {},
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\goebe\\Source\\Repos\\MecanicaProj\\MecProj\\MecProj.csproj",
+      "projectUniqueName": "C:\\Users\\Luiz Goebel\\Source\\Repos\\MecanicaProj\\MecProj\\MecProj.csproj",
       "projectName": "MecProj",
-      "projectPath": "C:\\Users\\goebe\\Source\\Repos\\MecanicaProj\\MecProj\\MecProj.csproj",
-      "packagesPath": "C:\\Users\\goebe\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\goebe\\Source\\Repos\\MecanicaProj\\MecProj\\obj\\",
+      "projectPath": "C:\\Users\\Luiz Goebel\\Source\\Repos\\MecanicaProj\\MecProj\\MecProj.csproj",
+      "packagesPath": "C:\\Users\\Luiz Goebel\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Luiz Goebel\\Source\\Repos\\MecanicaProj\\MecProj\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\goebe\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Luiz Goebel\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -9207,6 +9240,10 @@
             "target": "Package",
             "version": "[7.2.2, )"
           },
+          "SqlMigrations": {
+            "target": "Package",
+            "version": "[1.0.0.117, )"
+          },
           "System.ComponentModel.Annotations": {
             "target": "Package",
             "version": "[5.0.0, )"
@@ -9233,5 +9270,17 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.301\\RuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "O pacote 'SqlMigrations 1.0.0.117' foi restaurado usando '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' em vez da estrutura de destino do projeto 'net5.0'. Esse pacote pode não ser totalmente compatível com o seu projeto.",
+      "libraryId": "SqlMigrations",
+      "targetGraphs": [
+        "net5.0"
+      ]
+    }
+  ]
 }

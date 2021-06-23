@@ -27,8 +27,26 @@ namespace MecProj.Controllers
             return View(await _context.Cliente.ToListAsync());
         }
 
+        public static List<Cliente> GetClientes()
+        {
+            List<Cliente> lista = new List<Cliente>();
+            Cliente cli = new()
+            {
+                Nome = "Luiz"
+            };
+            lista.Add(cli);
+            return lista;
+        }
 
 
+        //@foreach(var item in MecProj.Controllers.ClientesController.GetClientes(Model.ClienteId))
+        //{
+        //        < select >
+        //            < option value = "@item.Nome" > @item.Nome </ option >
+
+
+        //         </ select >
+        //        }
 
 
 

@@ -1,43 +1,31 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using MecProj.Data;
 using MecProj.Models;
-using System.Data.Common;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using System;
-using Microsoft.AspNetCore.Mvc.RazorPages;
-
 
 namespace MecProj.Controllers
 {
-    public class OrdemServicosController : Controller
+    public class OrdemServicoesController : Controller
     {
         private readonly MDRContext _context;
 
-        public OrdemServicosController(MDRContext context)
+        public OrdemServicoesController(MDRContext context)
         {
             _context = context;
         }
 
-        // GET: OrdemServicos
+        // GET: OrdemServicoes
         public async Task<IActionResult> Index()
         {
             return View(await _context.Servico.ToListAsync());
         }
 
-
-        //public IActionResult GetClientes()
-        //{
-        //    ViewBag.ListaCli = _context.Cliente.Select(x => x.Nome).ToList();
-        //    //ViewBag.ListaCli = _context.Cliente.ToList();
-        //    return View();
-        //}
-
-
-        // GET: OrdemServicos/Details/5
+        // GET: OrdemServicoes/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -55,13 +43,13 @@ namespace MecProj.Controllers
             return View(ordemServico);
         }
 
-        // GET: OrdemServicos/Create
+        // GET: OrdemServicoes/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: OrdemServicos/Create
+        // POST: OrdemServicoes/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -70,14 +58,14 @@ namespace MecProj.Controllers
         {
             if (ModelState.IsValid)
             {
-                _context.Add(ordemServico);
+                _context.Add(ordemServico.Cliente.ToList());
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
             return View(ordemServico);
         }
 
-        // GET: OrdemServicos/Edit/5
+        // GET: OrdemServicoes/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -93,7 +81,7 @@ namespace MecProj.Controllers
             return View(ordemServico);
         }
 
-        // POST: OrdemServicos/Edit/5
+        // POST: OrdemServicoes/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -128,7 +116,7 @@ namespace MecProj.Controllers
             return View(ordemServico);
         }
 
-        // GET: OrdemServicos/Delete/5
+        // GET: OrdemServicoes/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -146,7 +134,7 @@ namespace MecProj.Controllers
             return View(ordemServico);
         }
 
-        // POST: OrdemServicos/Delete/5
+        // POST: OrdemServicoes/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
@@ -161,6 +149,5 @@ namespace MecProj.Controllers
         {
             return _context.Servico.Any(e => e.Id == id);
         }
-
     }
 }

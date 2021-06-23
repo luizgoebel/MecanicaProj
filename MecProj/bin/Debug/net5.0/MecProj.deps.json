@@ -44,6 +44,7 @@
           "Microsoft.NETCore.App": "2.2.8",
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": "5.0.2",
           "Polly": "7.2.2",
+          "SqlMigrations": "1.0.0.117",
           "System.ComponentModel.Annotations": "5.0.0",
           "Microsoft.AspNetCore.Antiforgery": "5.0.0.0",
           "Microsoft.AspNetCore.Authentication.Abstractions.Reference": "5.0.0.0",
@@ -1423,6 +1424,17 @@
           }
         }
       },
+      "SqlMigrations/1.0.0.117": {
+        "runtime": {
+          "lib/DbUp.dll": {
+            "assemblyVersion": "2.0.67.0",
+            "fileVersion": "2.0.67.0"
+          }
+        },
+        "compile": {
+          "lib/DbUp.dll": {}
+        }
+      },
       "System.Buffers/4.5.0": {},
       "System.CodeDom/4.7.0": {
         "runtime": {
@@ -1456,7 +1468,11 @@
           "System.Threading.Tasks": "4.3.0"
         }
       },
-      "System.Collections.Immutable/5.0.0": {},
+      "System.Collections.Immutable/5.0.0": {
+        "compile": {
+          "lib/netstandard2.0/System.Collections.Immutable.dll": {}
+        }
+      },
       "System.Collections.NonGeneric/4.3.0": {
         "dependencies": {
           "System.Diagnostics.Debug": "4.3.0",
@@ -1483,7 +1499,11 @@
           "System.Runtime": "4.3.0"
         }
       },
-      "System.ComponentModel.Annotations/5.0.0": {},
+      "System.ComponentModel.Annotations/5.0.0": {
+        "compile": {
+          "ref/netstandard2.1/System.ComponentModel.Annotations.dll": {}
+        }
+      },
       "System.ComponentModel.Primitives/4.3.0": {
         "dependencies": {
           "System.ComponentModel": "4.3.0",
@@ -1959,7 +1979,11 @@
           "System.Runtime": "4.3.0"
         }
       },
-      "System.Reflection.Metadata/5.0.0": {},
+      "System.Reflection.Metadata/5.0.0": {
+        "compile": {
+          "lib/netstandard2.0/System.Reflection.Metadata.dll": {}
+        }
+      },
       "System.Reflection.Primitives/4.3.0": {
         "dependencies": {
           "Microsoft.NETCore.Platforms": "3.1.0",
@@ -4531,6 +4555,13 @@
       "sha512": "sha512-YhEdSQUsTx+C8m8Bw7ar5/VesXvCFMItyZF7G1AUY+OM0VPZUOeAVpJ4Wl6fydBGUYZxojTDR3I6Bj/+BPkJNA==",
       "path": "runtime.win-x86.runtime.native.system.data.sqlclient.sni/4.4.0",
       "hashPath": "runtime.win-x86.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512"
+    },
+    "SqlMigrations/1.0.0.117": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-EKh6ZVut3AvoZZ14KfHoaabgxvNxU4o0yJmRlLi/E+Cg9VjXfLX7NR1/hOYoxbG14uH4eC5DxMVNuSwjh2dRCQ==",
+      "path": "sqlmigrations/1.0.0.117",
+      "hashPath": "sqlmigrations.1.0.0.117.nupkg.sha512"
     },
     "System.Buffers/4.5.0": {
       "type": "package",

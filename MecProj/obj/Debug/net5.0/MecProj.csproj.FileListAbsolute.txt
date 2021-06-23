@@ -1328,11 +1328,6 @@ C:\Users\Luiz Goebel\Source\Repos\MecanicaProj\MecProj\obj\Debug\net5.0\Razor\Vi
 C:\Users\Luiz Goebel\Source\Repos\MecanicaProj\MecProj\obj\Debug\net5.0\Razor\Views\Fornecedors\Index.cshtml.g.cs
 C:\Users\Luiz Goebel\Source\Repos\MecanicaProj\MecProj\obj\Debug\net5.0\Razor\Views\Home\Index.cshtml.g.cs
 C:\Users\Luiz Goebel\Source\Repos\MecanicaProj\MecProj\obj\Debug\net5.0\Razor\Views\Home\Privacy.cshtml.g.cs
-C:\Users\Luiz Goebel\Source\Repos\MecanicaProj\MecProj\obj\Debug\net5.0\Razor\Views\OrdemServicos\Create.cshtml.g.cs
-C:\Users\Luiz Goebel\Source\Repos\MecanicaProj\MecProj\obj\Debug\net5.0\Razor\Views\OrdemServicos\Delete.cshtml.g.cs
-C:\Users\Luiz Goebel\Source\Repos\MecanicaProj\MecProj\obj\Debug\net5.0\Razor\Views\OrdemServicos\Details.cshtml.g.cs
-C:\Users\Luiz Goebel\Source\Repos\MecanicaProj\MecProj\obj\Debug\net5.0\Razor\Views\OrdemServicos\Edit.cshtml.g.cs
-C:\Users\Luiz Goebel\Source\Repos\MecanicaProj\MecProj\obj\Debug\net5.0\Razor\Views\OrdemServicos\Index.cshtml.g.cs
 C:\Users\Luiz Goebel\Source\Repos\MecanicaProj\MecProj\obj\Debug\net5.0\Razor\Views\Shared\Error.cshtml.g.cs
 C:\Users\Luiz Goebel\Source\Repos\MecanicaProj\MecProj\obj\Debug\net5.0\Razor\Views\Shared\Menu.cshtml.g.cs
 C:\Users\Luiz Goebel\Source\Repos\MecanicaProj\MecProj\obj\Debug\net5.0\Razor\Views\Shared\TopNav.cshtml.g.cs
@@ -1368,3 +1363,9 @@ C:\Users\goebe\Source\Repos\MecanicaProj\MecProj\obj\Debug\net5.0\Razor\Views\Em
 C:\Users\goebe\Source\Repos\MecanicaProj\MecProj\obj\Debug\net5.0\Razor\Views\Empresas\Details.cshtml.g.cs
 C:\Users\goebe\Source\Repos\MecanicaProj\MecProj\obj\Debug\net5.0\Razor\Views\Empresas\Edit.cshtml.g.cs
 C:\Users\goebe\Source\Repos\MecanicaProj\MecProj\obj\Debug\net5.0\Razor\Views\Empresas\Index.cshtml.g.cs
+C:\Users\Luiz Goebel\Source\Repos\MecanicaProj\MecProj\obj\Debug\net5.0\Razor\Views\OrdemServicoes\Create.cshtml.g.cs
+C:\Users\Luiz Goebel\Source\Repos\MecanicaProj\MecProj\obj\Debug\net5.0\Razor\Views\OrdemServicoes\Delete.cshtml.g.cs
+C:\Users\Luiz Goebel\Source\Repos\MecanicaProj\MecProj\obj\Debug\net5.0\Razor\Views\OrdemServicoes\Details.cshtml.g.cs
+C:\Users\Luiz Goebel\Source\Repos\MecanicaProj\MecProj\obj\Debug\net5.0\Razor\Views\OrdemServicoes\Edit.cshtml.g.cs
+C:\Users\Luiz Goebel\Source\Repos\MecanicaProj\MecProj\obj\Debug\net5.0\Razor\Views\OrdemServicoes\Index.cshtml.g.cs
+C:\Users\Luiz Goebel\Source\Repos\MecanicaProj\MecProj\bin\Debug\net5.0\DbUp.dll

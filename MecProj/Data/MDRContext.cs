@@ -17,8 +17,8 @@ namespace MecProj.Data
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             base.OnConfiguring(optionsBuilder);
-            optionsBuilder.UseSqlServer(@"Integrated Security=SSPI;Persist Security Info=False;Initial Catalog=MDRContext;Data Source=DESKTOP-QC5LNR4\SQLEXPRESS"); /*PcCasa*/
-            /*optionsBuilder.UseSqlServer(@"Integrated Security=SSPI;Persist Security Info=False;User ID=luiz;Initial Catalog=MDRContext;Data Source=LUIZ\SQLLUIZ");*/ /*notebbok*/
+            /* optionsBuilder.UseSqlServer(@"Integrated Security=SSPI;Persist Security Info=False;Initial Catalog=MDRContext;Data Source=DESKTOP-QC5LNR4\SQLEXPRESS");*/ /*PcCasa*/
+            optionsBuilder.UseSqlServer(@"Integrated Security=SSPI;Persist Security Info=False;User ID=luiz;Initial Catalog=MDRContext;Data Source=LUIZ\SQLLUIZ"); /*notebbok*/
         }
         protected override void OnModelCreating(ModelBuilder mb)
         {
