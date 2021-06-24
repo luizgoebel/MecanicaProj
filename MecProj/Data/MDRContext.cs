@@ -26,9 +26,8 @@ namespace MecProj.Data
             mb.ApplyConfiguration(new ClienteConfiguration());
             mb.ApplyConfiguration(new OrdemConfiguration());
             mb.ApplyConfiguration(new FornecedorConfiguration());
-            mb.ApplyConfiguration(new ReciboConfiguration());
         }
-        public DbSet<Recibo> Recibos { get; set; }
+
         public DbSet<MecProj.Models.Cliente> Cliente { get; set; }
         public DbSet<MecProj.Models.OrdemServico> Servico { get; set; }
         public DbSet<MecProj.Models.Fornecedor> Fornecedor { get; set; }

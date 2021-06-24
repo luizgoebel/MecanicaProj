@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using MecProj.Data;
 using MecProj.Models;
 
+
 namespace MecProj.Controllers
 {
     public class OrdemServicoesController : Controller
@@ -58,7 +59,7 @@ namespace MecProj.Controllers
         {
             if (ModelState.IsValid)
             {
-                _context.Add(ordemServico.Cliente.ToList());
+                _context.Add(ordemServico);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }

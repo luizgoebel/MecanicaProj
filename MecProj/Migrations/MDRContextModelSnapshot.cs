@@ -63,6 +63,9 @@ namespace MecProj.Migrations
                         .HasMaxLength(5)
                         .HasColumnType("int");
 
+                    b.Property<int?>("OrdemServicoId")
+                        .HasColumnType("int");
+
                     b.Property<string>("Rua")
                         .IsRequired()
                         .HasMaxLength(50)
@@ -81,6 +84,8 @@ namespace MecProj.Migrations
 
                     b.HasIndex("Cpf")
                         .IsUnique();
+
+                    b.HasIndex("OrdemServicoId");
 
                     b.ToTable("Cliente");
                 });
@@ -217,42 +222,16 @@ namespace MecProj.Migrations
                     b.ToTable("Servico");
                 });
 
-            modelBuilder.Entity("MecProj.Models.Recibo", b =>
+            modelBuilder.Entity("MecProj.Models.Cliente", b =>
                 {
-                    b.Property<int>("Id")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("ClienteId")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("Saida")
-                        .HasColumnType("datetime2");
-
-                    b.Property<decimal>("Valor")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("ClienteId");
-
-                    b.ToTable("Recibo");
+                    b.HasOne("MecProj.Models.OrdemServico", null)
+                        .WithMany("Clientes")
+                        .HasForeignKey("OrdemServicoId");
                 });
 
-            modelBuilder.Entity("MecProj.Models.Recibo", b =>
+            modelBuilder.Entity("MecProj.Models.OrdemServico", b =>
                 {
-                    b.HasOne("MecProj.Models.Cliente", "Cliente")
-                        .WithMany()
-                        .HasForeignKey("ClienteId");
-
-                    b.HasOne("MecProj.Models.OrdemServico", "OrdemServico")
-                        .WithMany()
-                        .HasForeignKey("Id")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Cliente");
-
-                    b.Navigation("OrdemServico");
+                    b.Navigation("Clientes");
                 });
 #pragma warning restore 612, 618
         }

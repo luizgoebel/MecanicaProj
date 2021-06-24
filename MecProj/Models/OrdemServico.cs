@@ -12,17 +12,13 @@ namespace MecProj.Models
     {
         [Key]
         public int Id { get; set; }
-        [Required(ErrorMessage = "Informe o Cliente desta Ordem.")]
-        public List<Cliente> Cliente { get; set; }
-        [Required(ErrorMessage = "Informe o tipo de Serviço.")]
+        public string Cliente { get; set; }
+        public List<Cliente> Clientes { get; set; }
         public string Service { get; set; }
-        [Required(ErrorMessage = "Descrição do Serviço.")]
         public string Descricao { get; set; }
         public string Pecas { get; set; }
         [DataType(DataType.Date)]
-        [Required(ErrorMessage = "Informe a Data de entrada.")]
         public DateTime Entrada { get; set; }
-        [Required(ErrorMessage = "Informe a Situação da Ordem")]
         public string Situacao { get; set; }
 
 
