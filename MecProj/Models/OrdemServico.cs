@@ -22,11 +22,10 @@ namespace MecProj.Models
         public string Service { get; set; }
         public string Descricao { get; set; }
         public string Pecas { get; set; }
-        public decimal Valor_Total { get; set; }
+        public string Valor_Total { get; set; }
         [DataType(DataType.Date)]
         public DateTime Entrada { get; set; }
         public string Situacao { get; set; }
-
         //public List<Cliente> Clientes { get; set; }
 
     }

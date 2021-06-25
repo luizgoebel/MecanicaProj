@@ -25,6 +25,10 @@ namespace MecProj.Controllers
         {
             return View(await _context.Servico.ToListAsync());
         }
+        public IActionResult NotAcept()
+        {
+            return View(_context.Servico.Select(x=>x.Situacao == "Não Aprovado").ToList());
+        }
 
         // GET: OrdemServicoes/Details/5
         public async Task<IActionResult> Details(int? id)
@@ -55,7 +59,7 @@ namespace MecProj.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Cliente,CPF_CNPJ,Telefone_Celular,Marca_Veiculo,Modelo_Veiculo,Ano_Veiculo,Service,Obs_Veiculo,Service,Valor_Total,Descricao,Pecas,Entrada,Situacao")] OrdemServico ordemServico)
+        public async Task<IActionResult> Create([Bind("Id, Cliente, CPF_CNPJ, Telefone_Celular, Marca_Veiculo, Modelo_Veiculo, Ano_Veiculo, Service, Obs_Veiculo, Service, Descricao, Pecas, Valor_Total, Entrada, Situacao")] OrdemServico ordemServico)
         {
             if (ModelState.IsValid)
             {
@@ -87,7 +91,7 @@ namespace MecProj.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Cliente,CPF_CNPJ,Telefone_Celular,Marca_Veiculo,Modelo_Veiculo,Ano_Veiculo,Service,Obs_Veiculo,Service,Valor_Total,Descricao,Pecas,Entrada,Situacao")] OrdemServico ordemServico)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Cliente,CPF_CNPJ,Telefone_Celular,Marca_Veiculo,Modelo_Veiculo,Ano_Veiculo,Service,Obs_Veiculo,Service,Descricao,Pecas,Valor_Total,Entrada,Situacao")] OrdemServico ordemServico)
         {
             if (id != ordemServico.Id)
             {

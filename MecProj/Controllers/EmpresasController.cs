@@ -54,7 +54,7 @@ namespace MecProj.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Razão_Social,Cnpj,Email,Telefone_Celular,Telefone_Recado,Estado,Cidade,Bairro,Rua,Numero,Complemento")] Empresa empresa)
+        public async Task<IActionResult> Create([Bind("Id,Razao_Social,Cnpj,Email,Telefone_Celular,Telefone_Recado,Estado,Cidade,Bairro,Rua,Numero,Complemento")] Empresa empresa)
         {
             if (ModelState.IsValid)
             {
@@ -86,7 +86,7 @@ namespace MecProj.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Razão_Social,Cnpj,Email,Telefone_Celular,Telefone_Recado,Estado,Cidade,Bairro,Rua,Numero,Complemento")] Empresa empresa)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Razao_Social,Cnpj,Email,Telefone_Celular,Telefone_Recado,Estado,Cidade,Bairro,Rua,Numero,Complemento")] Empresa empresa)
         {
             if (id != empresa.Id)
             {

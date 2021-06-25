@@ -13,13 +13,13 @@ namespace MecProj.Configuration
         public void Configure(EntityTypeBuilder<Empresa> builder)
         {
             builder.ToTable("Empresa");
-            builder.Property(x => x.Razão_Social).IsRequired();
+            builder.Property(x => x.Razao_Social).IsRequired();
             builder.HasIndex(x => x.Cnpj).IsUnique();
             builder.Property(x => x.Telefone_Celular).IsRequired();
             builder.Property(x => x.Estado).IsRequired();
             builder.Property(x => x.Bairro).IsRequired();
             builder.Property(x => x.Rua).IsRequired();
-            builder.Property(x => x.Numero).IsRequired();
+            builder.Property(x => x.Numero).HasMaxLength(5).IsRequired();
         }
     }
 }

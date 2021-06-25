@@ -736,7 +736,6 @@ C:\Users\goebe\Source\Repos\MecanicaProj\MecProj\bin\Debug\net5.0\refs\System.Xm
 C:\Users\goebe\Source\Repos\MecanicaProj\MecProj\bin\Debug\net5.0\refs\WindowsBase.dll
 C:\Users\goebe\Source\Repos\MecanicaProj\MecProj\bin\Debug\net5.0\MecProj.Views.dll
 C:\Users\goebe\Source\Repos\MecanicaProj\MecProj\bin\Debug\net5.0\MecProj.Views.pdb
-C:\Users\goebe\Source\Repos\MecanicaProj\MecProj\bin\Debug\net5.0\Castle.Core.dll
 C:\Users\goebe\Source\Repos\MecanicaProj\MecProj\bin\Debug\net5.0\Humanizer.dll
 C:\Users\goebe\Source\Repos\MecanicaProj\MecProj\bin\Debug\net5.0\Microsoft.AspNetCore.Mvc.Razor.Extensions.dll
 C:\Users\goebe\Source\Repos\MecanicaProj\MecProj\bin\Debug\net5.0\Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation.dll
@@ -751,7 +750,6 @@ C:\Users\goebe\Source\Repos\MecanicaProj\MecProj\bin\Debug\net5.0\Microsoft.Data
 C:\Users\goebe\Source\Repos\MecanicaProj\MecProj\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.dll
 C:\Users\goebe\Source\Repos\MecanicaProj\MecProj\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Abstractions.dll
 C:\Users\goebe\Source\Repos\MecanicaProj\MecProj\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Design.dll
-C:\Users\goebe\Source\Repos\MecanicaProj\MecProj\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Proxies.dll
 C:\Users\goebe\Source\Repos\MecanicaProj\MecProj\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Relational.dll
 C:\Users\goebe\Source\Repos\MecanicaProj\MecProj\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.SqlServer.dll
 C:\Users\goebe\Source\Repos\MecanicaProj\MecProj\bin\Debug\net5.0\Microsoft.Extensions.DependencyInjection.dll
@@ -771,7 +769,6 @@ C:\Users\goebe\Source\Repos\MecanicaProj\MecProj\bin\Debug\net5.0\Microsoft.Visu
 C:\Users\goebe\Source\Repos\MecanicaProj\MecProj\bin\Debug\net5.0\Microsoft.VisualStudio.Web.CodeGeneration.Utils.dll
 C:\Users\goebe\Source\Repos\MecanicaProj\MecProj\bin\Debug\net5.0\Microsoft.VisualStudio.Web.CodeGenerators.Mvc.dll
 C:\Users\goebe\Source\Repos\MecanicaProj\MecProj\bin\Debug\net5.0\Newtonsoft.Json.dll
-C:\Users\goebe\Source\Repos\MecanicaProj\MecProj\bin\Debug\net5.0\Polly.dll
 C:\Users\goebe\Source\Repos\MecanicaProj\MecProj\bin\Debug\net5.0\System.Composition.AttributedModel.dll
 C:\Users\goebe\Source\Repos\MecanicaProj\MecProj\bin\Debug\net5.0\System.Composition.Convention.dll
 C:\Users\goebe\Source\Repos\MecanicaProj\MecProj\bin\Debug\net5.0\System.Composition.Hosting.dll
@@ -869,11 +866,6 @@ C:\Users\goebe\Source\Repos\MecanicaProj\MecProj\obj\Debug\net5.0\Razor\Views\Fo
 C:\Users\goebe\Source\Repos\MecanicaProj\MecProj\obj\Debug\net5.0\Razor\Views\Fornecedors\Index.cshtml.g.cs
 C:\Users\goebe\Source\Repos\MecanicaProj\MecProj\obj\Debug\net5.0\Razor\Views\Home\Index.cshtml.g.cs
 C:\Users\goebe\Source\Repos\MecanicaProj\MecProj\obj\Debug\net5.0\Razor\Views\Home\Privacy.cshtml.g.cs
-C:\Users\goebe\Source\Repos\MecanicaProj\MecProj\obj\Debug\net5.0\Razor\Views\OrdemServicos\Create.cshtml.g.cs
-C:\Users\goebe\Source\Repos\MecanicaProj\MecProj\obj\Debug\net5.0\Razor\Views\OrdemServicos\Delete.cshtml.g.cs
-C:\Users\goebe\Source\Repos\MecanicaProj\MecProj\obj\Debug\net5.0\Razor\Views\OrdemServicos\Details.cshtml.g.cs
-C:\Users\goebe\Source\Repos\MecanicaProj\MecProj\obj\Debug\net5.0\Razor\Views\OrdemServicos\Edit.cshtml.g.cs
-C:\Users\goebe\Source\Repos\MecanicaProj\MecProj\obj\Debug\net5.0\Razor\Views\OrdemServicos\Index.cshtml.g.cs
 C:\Users\goebe\Source\Repos\MecanicaProj\MecProj\obj\Debug\net5.0\Razor\Views\Shared\Error.cshtml.g.cs
 C:\Users\goebe\Source\Repos\MecanicaProj\MecProj\obj\Debug\net5.0\Razor\Views\Shared\Menu.cshtml.g.cs
 C:\Users\goebe\Source\Repos\MecanicaProj\MecProj\obj\Debug\net5.0\Razor\Views\Shared\TopNav.cshtml.g.cs
@@ -889,17 +881,6 @@ C:\Users\goebe\Source\Repos\MecanicaProj\MecProj\obj\Debug\net5.0\MecProj.dll
 C:\Users\goebe\Source\Repos\MecanicaProj\MecProj\obj\Debug\net5.0\ref\MecProj.dll
 C:\Users\goebe\Source\Repos\MecanicaProj\MecProj\obj\Debug\net5.0\MecProj.pdb
 C:\Users\goebe\Source\Repos\MecanicaProj\MecProj\obj\Debug\net5.0\MecProj.genruntimeconfig.cache
-C:\Users\goebe\Source\Repos\MecanicaProj\MecProj\bin\Debug\net5.0\DocumentFormat.OpenXml.dll
-C:\Users\goebe\Source\Repos\MecanicaProj\MecProj\bin\Debug\net5.0\System.IO.Packaging.dll
-C:\Users\goebe\Source\Repos\MecanicaProj\MecProj\bin\Debug\net5.0\EntityFramework.SqlServer.dll
-C:\Users\goebe\Source\Repos\MecanicaProj\MecProj\bin\Debug\net5.0\EntityFramework.dll
-C:\Users\goebe\Source\Repos\MecanicaProj\MecProj\bin\Debug\net5.0\System.CodeDom.dll
-C:\Users\goebe\Source\Repos\MecanicaProj\MecProj\bin\Debug\net5.0\System.Data.SqlClient.dll
-C:\Users\goebe\Source\Repos\MecanicaProj\MecProj\bin\Debug\net5.0\runtimes\win-arm64\native\sni.dll
-C:\Users\goebe\Source\Repos\MecanicaProj\MecProj\bin\Debug\net5.0\runtimes\win-x64\native\sni.dll
-C:\Users\goebe\Source\Repos\MecanicaProj\MecProj\bin\Debug\net5.0\runtimes\win-x86\native\sni.dll
-C:\Users\goebe\Source\Repos\MecanicaProj\MecProj\bin\Debug\net5.0\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
-C:\Users\goebe\Source\Repos\MecanicaProj\MecProj\bin\Debug\net5.0\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
 C:\Users\goebe\Source\Repos\MecanicaProj\MecProj\obj\Debug\net5.0\MecProj.csproj.AssemblyReference.cache
 C:\Users\Luiz Goebel\Source\Repos\MecanicaProj\MecProj\bin\Debug\net5.0\appsettings.Development.json
 C:\Users\Luiz Goebel\Source\Repos\MecanicaProj\MecProj\bin\Debug\net5.0\appsettings.json
@@ -1354,3 +1335,8 @@ C:\Users\Luiz Goebel\Source\Repos\MecanicaProj\MecProj\obj\Debug\net5.0\Razor\Vi
 C:\Users\Luiz Goebel\Source\Repos\MecanicaProj\MecProj\obj\Debug\net5.0\Razor\Views\OrdemServicoes\Details.cshtml.g.cs
 C:\Users\Luiz Goebel\Source\Repos\MecanicaProj\MecProj\obj\Debug\net5.0\Razor\Views\OrdemServicoes\Edit.cshtml.g.cs
 C:\Users\Luiz Goebel\Source\Repos\MecanicaProj\MecProj\obj\Debug\net5.0\Razor\Views\OrdemServicoes\Index.cshtml.g.cs
+C:\Users\goebe\Source\Repos\MecanicaProj\MecProj\obj\Debug\net5.0\Razor\Views\OrdemServicoes\Create.cshtml.g.cs
+C:\Users\goebe\Source\Repos\MecanicaProj\MecProj\obj\Debug\net5.0\Razor\Views\OrdemServicoes\Delete.cshtml.g.cs
+C:\Users\goebe\Source\Repos\MecanicaProj\MecProj\obj\Debug\net5.0\Razor\Views\OrdemServicoes\Details.cshtml.g.cs
+C:\Users\goebe\Source\Repos\MecanicaProj\MecProj\obj\Debug\net5.0\Razor\Views\OrdemServicoes\Edit.cshtml.g.cs
+C:\Users\goebe\Source\Repos\MecanicaProj\MecProj\obj\Debug\net5.0\Razor\Views\OrdemServicoes\Index.cshtml.g.cs

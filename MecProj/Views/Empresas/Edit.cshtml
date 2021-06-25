@@ -172,7 +172,7 @@
 
 
 
-<h1>Editar <b>@Model.Razão_Social</b></h1>
+<h1>Editar <b>@Model.Razao_Social</b></h1>
 
 
 <div id="formulario">
@@ -182,28 +182,28 @@
 
         <div class="form-row form-content">
             <div class="form-group col-md-7">
-                <label asp-for="Razão_Social" class="control-label"></label>
-                <input asp-for="Razão_Social" class="form-control" placeholder="Nome Empresa" />
-                <span asp-validation-for="Razão_Social" class="text-danger"></span>
+                <label asp-for="Razao_Social" class="control-label">Razão Social</label>
+                <input asp-for="Razao_Social" class="form-control" placeholder="Nome Empresa." />
+                <span asp-validation-for="Razao_Social" class="text-danger"></span>
             </div>
             <div class="form-group col-md-5">
                 <label asp-for="Cnpj" class="control-label"></label>
-                <input asp-for="Cnpj" class="form-control cpf-mask" placeholder="Ex.: 000.000.000-00" onKeyPress="MascaraGenerica(this, 'CNPJ')" />
+                <input asp-for="Cnpj" class="form-control cpf-mask" placeholder="CNPJ." onKeyPress="MascaraGenerica(this, 'CNPJ')" />
                 <span asp-validation-for="Cnpj" class="text-danger"></span>
             </div>
             <div class="form-group col-xl-7">
                 <label asp-for="Email" class="control-label"></label>
-                <input asp-for="Email" class="form-control" placeholder="Digite o Email" />
+                <input asp-for="Email" class="form-control" placeholder="Digite o Email." />
                 <span asp-validation-for="Email" class="text-danger"></span>
             </div>
             <div class="form-group col-xl-5">
-                <label asp-for="Telefone_Celular" class="control-label"></label>
+                <label asp-for="Telefone_Celular" class="control-label">Telefone Celular</label>
                 <input asp-for="Telefone_Celular" class="form-control" placeholder="(00) 00000-0000" onKeyPress="MascaraGenerica(this, 'TELEFONE')" />
                 <span asp-validation-for="Telefone_Celular" class="text-danger"></span>
             </div>
             <div class="form-group col-xl-6">
-                <label asp-for="Telefone_Recado" class="control-label"></label>
-                <input asp-for="Telefone_Recado" class="form-control" placeholder="Fixo ou Celular" onKeyPress="MascaraGenerica(this, 'TELEFONE')" />
+                <label asp-for="Telefone_Recado" class="control-label">Telefone Recado</label>
+                <input asp-for="Telefone_Recado" class="form-control" placeholder="Fixo ou Celular." onKeyPress="MascaraGenerica(this, 'TELEFONE')" />
                 <span asp-validation-for="Telefone_Recado" class="text-danger"></span>
             </div>
             <div class="form-group col-xl-6">
@@ -217,27 +217,27 @@
             </div>
             <div class="form-group col-xl-6">
                 <label asp-for="Cidade" class="control-label"></label>
-                <input asp-for="Cidade" class="form-control" placeholder="Cidade" />
+                <input asp-for="Cidade" class="form-control" placeholder="Cidade." />
                 <span asp-validation-for="Cidade" class="text-danger"></span>
             </div>
             <div class="form-group col-xl-6">
                 <label asp-for="Bairro" class="control-label"></label>
-                <input asp-for="Bairro" class="form-control" placeholder="Bairro" />
+                <input asp-for="Bairro" class="form-control" placeholder="Bairro." />
                 <span asp-validation-for="Bairro" class="text-danger"></span>
             </div>
             <div class="form-group col-md-8">
                 <label asp-for="Rua" class="control-label"></label>
-                <input asp-for="Rua" class="form-control" placeholder="Endereço" />
+                <input asp-for="Rua" class="form-control" placeholder="Endereço." />
                 <span asp-validation-for="Rua" class="text-danger"></span>
             </div>
             <div class="form-group col-md-4">
                 <label asp-for="Numero" class="control-label"></label>
-                <input asp-for="Numero" class="form-control" min="1" placeholder="Número" />
+                <input asp-for="Numero" class="form-control" min="1" placeholder="Número." />
                 <span asp-validation-for="Numero" class="text-danger"></span>
             </div>
             <div class="form-group col-md-12">
                 <label asp-for="Complemento" class="control-label"></label>
-                <input asp-for="Complemento" class="form-control" placeholder="Informações" />
+                <input asp-for="Complemento" class="form-control" placeholder="Informações." />
                 <span asp-validation-for="Complemento" class="text-danger"></span>
             </div>
         </div>
@@ -252,6 +252,6 @@
 </div>
 
 
-@*@section Scripts {
+@section Scripts {
         @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-    }*@
+    }

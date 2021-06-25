@@ -10,9 +10,9 @@ namespace MecProj.Models
         public string Nome { get; set; }
         [Required(ErrorMessage = "Informe o CPF do Cliente.")]
         public string Cpf { get; set; }
-        [Required(ErrorMessage = "Informe o Email do Cliente.")]
         [DataType(DataType.EmailAddress)]
         public string Email { get; set; }
+        [Required(ErrorMessage = "Informe o Número de Contato.")]
         public string TelefoneCelular { get; set; }
         public string TelefoneRecado { get; set; }
         [Required(ErrorMessage = "Informe o Estado do Cliente.")]
@@ -23,7 +23,7 @@ namespace MecProj.Models
         public string Bairro { get; set; }
         [Required(ErrorMessage = "Informe a Rua do Cliente.")]
         public string Rua { get; set; }
-        [Required(ErrorMessage = "Informe o Número do Cliente.")]
+        [Required(ErrorMessage = "Informe o Número da casa.")]
         public int Numero { get; set; }
         public string Complemento { get; set; }
 

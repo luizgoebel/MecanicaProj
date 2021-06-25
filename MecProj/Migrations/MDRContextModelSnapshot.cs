@@ -45,7 +45,6 @@ namespace MecProj.Migrations
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Email")
-                        .IsRequired()
                         .HasMaxLength(30)
                         .HasColumnType("nvarchar(30)");
 
@@ -61,9 +60,6 @@ namespace MecProj.Migrations
 
                     b.Property<int>("Numero")
                         .HasMaxLength(5)
-                        .HasColumnType("int");
-
-                    b.Property<int?>("OrdemServicoId")
                         .HasColumnType("int");
 
                     b.Property<string>("Rua")
@@ -85,8 +81,6 @@ namespace MecProj.Migrations
                     b.HasIndex("Cpf")
                         .IsUnique();
 
-                    b.HasIndex("OrdemServicoId");
-
                     b.ToTable("Cliente");
                 });
 
@@ -98,12 +92,15 @@ namespace MecProj.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Bairro")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Cidade")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Cnpj")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Complemento")
@@ -113,18 +110,22 @@ namespace MecProj.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Estado")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("Numero")
                         .HasColumnType("int");
 
-                    b.Property<string>("Razão_Social")
+                    b.Property<string>("Razao_Social")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Rua")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Telefone_Celular")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Telefone_Recado")
@@ -193,45 +194,55 @@ namespace MecProj.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("Cliente")
-                        .IsRequired()
+                    b.Property<string>("Ano_Veiculo")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Descricao")
+                    b.Property<string>("CPF_CNPJ")
                         .IsRequired()
-                        .HasMaxLength(30)
-                        .HasColumnType("nvarchar(30)");
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
+
+                    b.Property<string>("Cliente")
+                        .IsRequired()
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar(200)");
+
+                    b.Property<string>("Descricao")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("Entrada")
                         .HasColumnType("datetime2");
+
+                    b.Property<string>("Marca_Veiculo")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Modelo_Veiculo")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Obs_Veiculo")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Pecas")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Service")
-                        .IsRequired()
-                        .HasMaxLength(200)
-                        .HasColumnType("nvarchar(200)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Situacao")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Telefone_Celular")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Valor_Total")
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasKey("Id");
 
                     b.ToTable("Servico");
-                });
-
-            modelBuilder.Entity("MecProj.Models.Cliente", b =>
-                {
-                    b.HasOne("MecProj.Models.OrdemServico", null)
-                        .WithMany("Clientes")
-                        .HasForeignKey("OrdemServicoId");
-                });
-
-            modelBuilder.Entity("MecProj.Models.OrdemServico", b =>
-                {
-                    b.Navigation("Clientes");
                 });
 #pragma warning restore 612, 618
         }
