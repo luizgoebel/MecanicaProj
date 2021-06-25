@@ -73,13 +73,16 @@
                 @Html.DisplayNameFor(model => model.Cliente)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Service)
+                @*@Html.DisplayNameFor(model => model.Service)*@Serviço
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Entrada)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Situacao)
+                @*@Html.DisplayNameFor(model => model.Situacao)*@Valor
+            </th>
+            <th>
+                @*@Html.DisplayNameFor(model => model.Situacao)*@Situação
             </th>
             <th>AÇÃO</th>
         </tr>
@@ -87,28 +90,31 @@
     <tbody>
         @foreach (var item in Model)
         {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Id)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Cliente)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Service)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Entrada)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Situacao)
-                </td>
-                <td>
-                    <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-primary btn-sm"> <i class="far fa-edit"></i> Editar</a> |
-                    <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-info btn-sm"> <i class="fas fa-search"></i> Detalhes</a> |
-                    <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger btn-sm"> <i class="far fa-trash-alt"></i> Deletar</a>
-                </td>
-            </tr>
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cliente)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Service)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Entrada)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Valor_Total)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Situacao)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-primary btn-sm"> <i class="far fa-edit"></i> Editar</a> |
+                <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-info btn-sm"> <i class="fas fa-search"></i> Detalhes</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger btn-sm"> <i class="far fa-trash-alt"></i> Deletar</a>
+            </td>
+        </tr>
         }
     </tbody>
 </table>

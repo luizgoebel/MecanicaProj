@@ -32,7 +32,7 @@ namespace MecProj.Controllers
             List<Cliente> lista = new List<Cliente>();
             Cliente cli = new()
             {
-                Nome = "Luiz"
+                Nome="Luiz Eduardo Goebel"
             };
             lista.Add(cli);
             return lista;

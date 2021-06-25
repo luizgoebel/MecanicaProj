@@ -82,18 +82,6 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
     var json_cidades = {
         "estados": [
             {
@@ -277,12 +265,12 @@
         <div class="form-row form-group col-md-10">
             <div class="form-group col-md-6">
                 <label asp-for="CPF_CNPJ" class="control-label">CPF/CNPJ</label>
-                <input asp-for="CPF_CNPJ" class="form-control" />
+                <input asp-for="CPF_CNPJ" class="form-control" placeholder="CPF ou CNPJ"/>
                 <span asp-validation-for="CPF_CNPJ" class="text-danger"></span>
             </div>
             <div class="form-group col-md-6">
                 <label asp-for="Telefone_Celular" class="control-label">Telefone Celular</label>
-                <input asp-for="Telefone_Celular" class="form-control" onKeyPress="MascaraGenerica(this, 'TELEFONE')" />
+                <input asp-for="Telefone_Celular" class="form-control" placeholder="Telefone Celular" onKeyPress="MascaraGenerica(this, 'TELEFONE')" />
                 <span asp-validation-for="Telefone_Celular" class="text-danger"></span>
             </div>
         </div>
