@@ -4,12 +4,14 @@
 @{
     ViewData["Title"] = "Create";
 }
+
 <header>
     <style>
+
         #cifrao {
             margin-left: 25px;
-            margin-top:10px;
-            font-size:14pt;
+            margin-top: 10px;
+            font-size: 14pt;
         }
 
 
@@ -20,174 +22,6 @@
         }
     </style>
 </header>
-
-
-
-<script>
-    var json_cidades = {
-        "estados": [
-            {
-                "sigla": "Fiat",
-                "nome": "Fiat",
-                "cidades": [
-                    "Grand Siena",
-                    "Siena",
-                    "Palio",
-                    "Punto",
-                    "Argo"
-                ]
-            },
-            {
-                "sigla": "Ford",
-                "nome": "Ford",
-                "cidades": [
-                    "Fusion",
-                    "Focus",
-                    "Ka"
-                ]
-            },
-            {
-                "sigla": "Volkswagen",
-                "nome": "Volkswagen",
-                "cidades": [
-                    "Gol",
-                    "Virtus",
-                    "Golf"
-                ]
-            }
-        ]
-    };
-    // FIM DO .js
-
-
-    function buscaCidades(e) {
-        document.querySelector("#cidade").innerHTML = '';
-        var cidade_select = document.querySelector("#cidade");
-
-        var num_estados = json_cidades.estados.length;
-        var j_index = -1;
-
-        // aqui eu pego o index do Estado dentro do JSON
-        for (var x = 0; x < num_estados; x++) {
-            if (json_cidades.estados[x].sigla == e) {
-                j_index = x;
-            }
-        }
-        if (j_index != -1) {
-            // aqui eu percorro todas as cidades e crio os OPTIONS
-            json_cidades.estados[j_index].cidades.forEach(function (cidade) {
-                var cid_opts = document.createElement('option');
-                cid_opts.setAttribute('value', cidade)
-                cid_opts.innerHTML = cidade;
-                cidade_select.appendChild(cid_opts);
-            });
-        } else {
-            document.querySelector("#cidade").innerHTML = '';
-        }
-    };
-    /////
-    function MascaraInteiro(num) {
-        var er = /[^0-9]/;
-        er.lastIndex = 0;
-        var campo = num;
-        if (er.test(campo.value)) {///verifica se é string, caso seja então apaga
-            var texto = $(campo).val();
-            $(campo).val(texto.substring(0, texto.length - 1));
-            return false;
-        } else {
-            return true;
-        }
-    }
-    function MascaraFloat(num) {
-        var er = /[^0-9.,]/;
-        er.lastIndex = 0;
-        var campo = num;
-        if (er.test(campo.value)) {///verifica se é string, caso seja então apaga
-            var texto = $(campo).val();
-            $(campo).val(texto.substring(0, texto.length - 1));
-            return false;
-        } else {
-            return true;
-        }
-    }
-    //formata de forma generica os campos
-    function formataCampo(campo, Mascara) {
-        var er = /[^0-9/ (),.-]/;
-        er.lastIndex = 0;
-
-        if (er.test(campo.value)) {///verifica se é string, caso seja então apaga
-            var texto = $(campo).val();
-            $(campo).val(texto.substring(0, texto.length - 1));
-        }
-        var boleanoMascara;
-        var exp = /\-|\.|\/|\(|\)| /g
-        var campoSoNumeros = campo.value.toString().replace(exp, "");
-        var posicaoCampo = 0;
-        var NovoValorCampo = "";
-        var TamanhoMascara = campoSoNumeros.length;
-        for (var i = 0; i <= TamanhoMascara; i++) {
-            boleanoMascara = ((Mascara.charAt(i) == "-") || (Mascara.charAt(i) == ".")
-                || (Mascara.charAt(i) == "/"))
-            boleanoMascara = boleanoMascara || ((Mascara.charAt(i) == "(")
-                || (Mascara.charAt(i) == ")") || (Mascara.charAt(i) == " "))
-            if (boleanoMascara) {
-                NovoValorCampo += Mascara.charAt(i);
-                TamanhoMascara++;
-            } else {
-                NovoValorCampo += campoSoNumeros.charAt(posicaoCampo);
-                posicaoCampo++;
-            }
-        }
-        campo.value = NovoValorCampo;
-        ////LIMITAR TAMANHO DE CARACTERES NO CAMPO DE ACORDO COM A MASCARA//
-        if (campo.value.length > Mascara.length) {
-            var texto = $(campo).val();
-            $(campo).val(texto.substring(0, texto.length - 1));
-        }
-        //////////////
-        return true;
-    }
-
-    function MascaraMoeda(i) {
-        var v = i.value.replace(/\D/g, '');
-        v = (v / 100).toFixed(2) + '';
-        v = v.replace(".", ",");
-        v = v.replace(/(\d)(\d{3})(\d{3}),/g, "$1.$2.$3,");
-        v = v.replace(/(\d)(\d{3}),/g, "$1.$2,");
-        i.value = v;
-    }
-
-    function MascaraGenerica(seletor, tipoMascara) {
-        setTimeout(function () {
-            if (tipoMascara == 'CPFCNPJ') {
-                if (seletor.value.length <= 14) { //cpf
-                    formataCampo(seletor, '000.000.000-00');
-                } else { //cnpj
-                    formataCampo(seletor, '00.000.000/0000-00');
-                }
-            } else if (tipoMascara == 'DATA') {
-                formataCampo(seletor, '00/00/0000');
-            } else if (tipoMascara == 'CEP') {
-                formataCampo(seletor, '00.000-000');
-            } else if (tipoMascara == 'TELEFONE') {
-                formataCampo(seletor, '(00) 000000000');
-            } else if (tipoMascara == 'INTEIRO') {
-                MascaraInteiro(seletor);
-            } else if (tipoMascara == 'FLOAT') {
-                MascaraFloat(seletor);
-            } else if (tipoMascara == 'CPF') {
-                formataCampo(seletor, '000.000.000-00');
-            } else if (tipoMascara == 'CNPJ') {
-                formataCampo(seletor, '00.000.000/0000-00');
-            } else if (tipoMascara == 'MOEDA') {
-                MascaraMoeda(seletor);
-            }
-        }, 200);
-    }
-</script>
-
-
-
 
 
 <h1>Emitir Ordem Serviço</h1>
@@ -230,9 +64,9 @@
 
         <h4>Dados Veículo:</h4>
         <div class="form-row form-group col-md-10">
-            <div class="form-group col-md-7">
+            <div class="form-group col-md-5">
                 <label asp-for="Marca_Veiculo" class="control-label">Marca</label>
-                <select asp-for="Marca_Veiculo" id="estado" class="form-control" onchange="buscaCidades(this.value)">
+                <select asp-for="Marca_Veiculo" id="marca" class="form-control" onchange="buscaCarros(this.value)">
                     <option value="" hidden selected>Selecionar</option>
                     <option value="Fiat">Fiat</option>
                     <option value="Ford">Ford</option>
@@ -244,18 +78,18 @@
 
             <div class="form-group col-md-5">
                 <label asp-for="Modelo_Veiculo" class="control-label">Modelo</label>
-                <select asp-for="Modelo_Veiculo" class="form-control" id="cidade">
+                <select asp-for="Modelo_Veiculo" class="form-control" id="carro">
                     <option value="" hidden selected>Selecionar</option>
                 </select>
                 <span asp-validation-for="Modelo_Veiculo" class="text-danger"></span>
             </div>
 
-            <div class="form-group col-md-4">
+            <div class="form-group col-md-2">
                 <label asp-for="Ano_Veiculo" class="control-label">Ano</label>
-                <input asp-for="Ano_Veiculo" type="number" min="1995" class="form-control" placeholder="Ano Carro" />
+                <input asp-for="Ano_Veiculo" class="form-control" placeholder="Ano" />
                 <span asp-validation-for="Ano_Veiculo" class="text-danger"></span>
             </div>
-            <div class="form-group col-md-8">
+            <div class="form-group col-md-12">
                 <label asp-for="Obs_Veiculo" class="control-label">Observações</label>
                 <textarea asp-for="Obs_Veiculo" class="form-control" placeholder="Ex.: Luz de placa queimada"></textarea>
                 <span asp-validation-for="Obs_Veiculo" class="text-danger"></span>
@@ -279,15 +113,32 @@
             </div>
         </div>
 
+
         <h4>Dados Serviço:</h4>
         <div class="form-group col-md-10">
             <label asp-for="Service" class="control-label">Serviço</label>
-            <input asp-for="Service" class="form-control" placeholder="Ex.: Troca de Óleo" />
+            <input asp-for="Service" class="form-control" placeholder="Serviços" />
+            <!--<select asp-for="Service" class="form-control select2-choices">-->
+            @*onchange="buscaServico(this.value)"*@
+            <!--<option value="" selected hidden>Selecionar</option>
+            <option value="troca de óleo">Troca de Peças</option>
+            <option value="Recuperação de Peças">Recuperação de Peças</option>
+            <option value="Elétrica">Manutenção Preventiva</option>
+            <option value="Manutenção Preventivas">Elétrica</option>
+            <option value="Outros">Outros</option>-->
+            @*<option value="Trocas">Trocas</option>
+                <option value="Suspensão">Suspensão</option>*@
+            </select>
             <span asp-validation-for="Service" class="text-danger"></span>
         </div>
+
+
         <div class="form-group col-md-10">
             <label asp-for="Descricao" class="control-label"></label>
             <textarea class="form-control" asp-for="Descricao" placeholder="Ex.: Efetuado a troca de Óleo"></textarea>
+            @*<select asp-for="Descricao" class="form-control" id="servico">
+                    <option value=""hidden selected>selecionar</option>
+                </select>*@
             <span asp-validation-for="Descricao" class="text-danger"></span>
         </div>
         <div class="form-group col-md-10">

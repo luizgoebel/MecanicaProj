@@ -1,2 +1,270 @@
 ﻿<script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
 <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+
+
+
+<script>
+    //MASCARA PARA CAMPOS
+    function MascaraInteiro(num) {
+        var er = /[^0-9]/;
+        er.lastIndex = 0;
+        var campo = num;
+        if (er.test(campo.value)) {///verifica se é string, caso seja então apaga
+            var texto = $(campo).val();
+            $(campo).val(texto.substring(0, texto.length - 1));
+            return false;
+        } else {
+            return true;
+        }
+    }
+    function MascaraFloat(num) {
+        var er = /[^0-9.,]/;
+        er.lastIndex = 0;
+        var campo = num;
+        if (er.test(campo.value)) {///verifica se é string, caso seja então apaga
+            var texto = $(campo).val();
+            $(campo).val(texto.substring(0, texto.length - 1));
+            return false;
+        } else {
+            return true;
+        }
+    }
+    //formata de forma generica os campos
+    function formataCampo(campo, Mascara) {
+        var er = /[^0-9/ (),.-]/;
+        er.lastIndex = 0;
+
+        if (er.test(campo.value)) {///verifica se é string, caso seja então apaga
+            var texto = $(campo).val();
+            $(campo).val(texto.substring(0, texto.length - 1));
+        }
+        var boleanoMascara;
+        var exp = /\-|\.|\/|\(|\)| /g
+        var campoSoNumeros = campo.value.toString().replace(exp, "");
+        var posicaoCampo = 0;
+        var NovoValorCampo = "";
+        var TamanhoMascara = campoSoNumeros.length;
+        for (var i = 0; i <= TamanhoMascara; i++) {
+            boleanoMascara = ((Mascara.charAt(i) == "-") || (Mascara.charAt(i) == ".")
+                || (Mascara.charAt(i) == "/"))
+            boleanoMascara = boleanoMascara || ((Mascara.charAt(i) == "(")
+                || (Mascara.charAt(i) == ")") || (Mascara.charAt(i) == " "))
+            if (boleanoMascara) {
+                NovoValorCampo += Mascara.charAt(i);
+                TamanhoMascara++;
+            } else {
+                NovoValorCampo += campoSoNumeros.charAt(posicaoCampo);
+                posicaoCampo++;
+            }
+        }
+        campo.value = NovoValorCampo;
+        ////LIMITAR TAMANHO DE CARACTERES NO CAMPO DE ACORDO COM A MASCARA//
+        if (campo.value.length > Mascara.length) {
+            var texto = $(campo).val();
+            $(campo).val(texto.substring(0, texto.length - 1));
+        }
+        //////////////
+        return true;
+    }
+    function MascaraMoeda(i) {
+        var v = i.value.replace(/\D/g, '');
+        v = (v / 100).toFixed(2) + '';
+        v = v.replace(".", ",");
+        v = v.replace(/(\d)(\d{3})(\d{3}),/g, "$1.$2.$3,");
+        v = v.replace(/(\d)(\d{3}),/g, "$1.$2,");
+        i.value = v;
+    }
+    function MascaraGenerica(seletor, tipoMascara) {
+        setTimeout(function () {
+            if (tipoMascara == 'CPFCNPJ') {
+                if (seletor.value.length <= 14) { //cpf
+                    formataCampo(seletor, '000.000.000-00');
+                } else { //cnpj
+                    formataCampo(seletor, '00.000.000/0000-00');
+                }
+            } else if (tipoMascara == 'DATA') {
+                formataCampo(seletor, '00/00/0000');
+            } else if (tipoMascara == 'CEP') {
+                formataCampo(seletor, '00.000-000');
+            } else if (tipoMascara == 'TELEFONE') {
+                formataCampo(seletor, '(00) 000000000');
+            } else if (tipoMascara == 'INTEIRO') {
+                MascaraInteiro(seletor);
+            } else if (tipoMascara == 'FLOAT') {
+                MascaraFloat(seletor);
+            } else if (tipoMascara == 'CPF') {
+                formataCampo(seletor, '000.000.000-00');
+            } else if (tipoMascara == 'CNPJ') {
+                formataCampo(seletor, '00.000.000/0000-00');
+            } else if (tipoMascara == 'MOEDA') {
+                MascaraMoeda(seletor);
+            }
+        }, 200);
+    };
+
+    //CODIGO PARA BUSCAR CIDADES
+    var json_cidades = {
+        "estados": [
+            {
+                "sigla": "SC",
+                "nome": "Santa Catarina",
+                "cidades": [
+                    "Blumenau",
+                    "Indaial",
+                    "Gaspar",
+                    "Pomerode",
+                    "Rio do Sul"
+                ]
+            }
+            ,
+            {
+                "sigla": "PR",
+                "nome": "Parana",
+                "cidades": [
+                    "Curitiba"
+                ]
+            }
+        ]
+    };
+    function buscaCidades(e) {
+        document.querySelector("#cidade").innerHTML = '';
+        var cidade_select = document.querySelector("#cidade");
+
+        var num_estados = json_cidades.estados.length;
+        var j_index = -1;
+
+        // aqui eu pego o index do Estado dentro do JSON
+        for (var x = 0; x < num_estados; x++) {
+            if (json_cidades.estados[x].sigla == e) {
+                j_index = x;
+            }
+        }
+        if (j_index != -1) {
+            // aqui eu percorro todas as cidades e crio os OPTIONS
+            json_cidades.estados[j_index].cidades.forEach(function (cidade) {
+                var cid_opts = document.createElement('option');
+                cid_opts.setAttribute('value', cidade)
+                cid_opts.innerHTML = cidade;
+                cidade_select.appendChild(cid_opts);
+            });
+        } else {
+            document.querySelector("#cidade").innerHTML = '';
+        }
+    };
+    // FIM DO .js
+
+    //CODIGO PARA BUSCAR CARROS
+    var json_Carros = {
+        "marcas": [
+            {
+                "sigla": "Fiat",
+                "nome": "Fiat",
+                "carros": [
+                    "Grand Siena",
+                    "Siena",
+                    "Palio",
+                    "Punto",
+                    "Argo"
+                ]
+            },
+            {
+                "sigla": "Ford",
+                "nome": "Ford",
+                "carros": [
+                    "Fusion",
+                    "Focus",
+                    "Ka"
+                ]
+            },
+            {
+                "sigla": "Volkswagen",
+                "nome": "Volkswagen",
+                "carros": [
+                    "Gol",
+                    "Virtus",
+                    "Golf"
+                ]
+            }
+
+        ]
+    };
+    function buscaCarros(e) {
+        document.querySelector("#carro").innerHTML = '';
+        var carro_select = document.querySelector("#carro");
+
+        var num_modelos = json_Carros.marcas.length;
+        var j_index = -1;
+
+        // aqui eu pego o index do Estado dentro do JSON
+        for (var x = 0; x < num_modelos; x++) {
+            if (json_Carros.marcas[x].sigla == e) {
+                j_index = x;
+            }
+        }
+        if (j_index != -1) {
+            // aqui eu percorro todas as cidades e crio os OPTIONS
+            json_Carros.marcas[j_index].carros.forEach(function (carro) {
+                var cid_opts = document.createElement('option');
+                cid_opts.setAttribute('value', carro)
+                cid_opts.innerHTML = carro;
+                carro_select.appendChild(cid_opts);
+            });
+        } else {
+            document.querySelector("#carro").innerHTML = '';
+        }
+    };
+    // FIM DO .js
+
+
+    //CODIGO PARA BUSCAR SERVIÇOS
+    var json_Servicos = {
+        "servicos": [
+            {
+                "sigla": "Trocas",
+                "nome": "Trocas",
+                "opcoes": [
+                    "Troca de Vela",
+                    "Troca de Óleo",
+                    "Troca de Filtro do Ar",
+                    "Troca de Filtro do Combústivel",
+                    "Troca de Suspensão",
+                ]
+            },
+            {
+                "sigla": "Suspensão",
+                "nome": "Suspensão",
+                "opcoes": [
+                    "Reparo de Suspensão",
+                    "Reparo amortecedor"
+                ]
+            }
+
+        ]
+    };
+    function buscaServico(e) {
+        document.querySelector("#servico").innerHTML = '';
+        var carro_select = document.querySelector("#servico");
+
+        var num_modelos = json_Servicos.servicos.length;
+        var j_index = -1;
+
+        // aqui eu pego o index do Estado dentro do JSON
+        for (var x = 0; x < num_modelos; x++) {
+            if (json_Servicos.servicos[x].sigla == e) {
+                j_index = x;
+            }
+        }
+        if (j_index != -1) {
+            // aqui eu percorro todas as cidades e crio os OPTIONS
+            json_Servicos.servicos[j_index].opcoes.forEach(function (servico) {
+                var cid_opts = document.createElement('option');
+                cid_opts.setAttribute('value', servico)
+                cid_opts.innerHTML = servico;
+                carro_select.appendChild(cid_opts);
+            });
+        } else {
+            document.querySelector("#servico").innerHTML = '';
+        }
+    };
+    // FIM DO .js
+</script>
