@@ -6,8 +6,15 @@
 }
 <header>
     <style>
+        #cifrao {
+            margin-left: 25px;
+            margin-top:10px;
+            font-size:14pt;
+        }
+
+
         #formulario {
-            margin-right: 10%;
+            margin-right: 30%;
             margin-top: 2%;
             width: 800px;
         }
@@ -15,14 +22,14 @@
 </header>
 
 
-<script>
 
-    var json_Carros = {
-        "marcas": [
+<script>
+    var json_cidades = {
+        "estados": [
             {
                 "sigla": "Fiat",
                 "nome": "Fiat",
-                "carros": [
+                "cidades": [
                     "Grand Siena",
                     "Siena",
                     "Palio",
@@ -33,7 +40,7 @@
             {
                 "sigla": "Ford",
                 "nome": "Ford",
-                "carros": [
+                "cidades": [
                     "Fusion",
                     "Focus",
                     "Ka"
@@ -42,70 +49,16 @@
             {
                 "sigla": "Volkswagen",
                 "nome": "Volkswagen",
-                "carros": [
+                "cidades": [
                     "Gol",
                     "Virtus",
                     "Golf"
                 ]
             }
-
         ]
     };
     // FIM DO .js
 
-    function buscaCarros(e) {
-        document.querySelector("#carro").innerHTML = '';
-        var carro_select = document.querySelector("#carro");
-
-        var num_modelos = json_Carros.marcas.length;
-        var j_index = -1;
-
-        // aqui eu pego o index do Estado dentro do JSON
-        for (var x = 0; x < num_modelos; x++) {
-            if (json_Carros.marcas[x].sigla == e) {
-                j_index = x;
-            }
-        }
-        if (j_index != -1) {
-            // aqui eu percorro todas as cidades e crio os OPTIONS
-            json_Carros.marcas[j_index].carros.forEach(function (carro) {
-                var cid_opts = document.createElement('option');
-                cid_opts.setAttribute('value', carro)
-                cid_opts.innerHTML = carro;
-                carro_select.appendChild(cid_opts);
-            });
-        } else {
-            document.querySelector("#carro").innerHTML = '';
-        }
-    };
-
-
-
-
-    var json_cidades = {
-        "estados": [
-            {
-                "sigla": "SC",
-                "nome": "Santa Catarina",
-                "cidades": [
-                    "Blumenau",
-                    "Indaial",
-                    "Gaspar",
-                    "Pomerode",
-                    "Rio do Sul"
-                ]
-            }
-            ,
-            {
-                "sigla": "PR",
-                "nome": "Parana",
-                "cidades": [
-                    "Curitiba"
-                ]
-            }
-        ]
-    };
-    // FIM DO .js
 
     function buscaCidades(e) {
         document.querySelector("#cidade").innerHTML = '';
@@ -132,7 +85,6 @@
             document.querySelector("#cidade").innerHTML = '';
         }
     };
-
     /////
     function MascaraInteiro(num) {
         var er = /[^0-9]/;
@@ -232,8 +184,9 @@
             }
         }, 200);
     }
-    /* END EXTERNAL SOURCE */
 </script>
+
+
 
 
 
@@ -248,7 +201,6 @@
         <h4>Dados Cliente:</h4>
         <div class="form-group col-md-10">
             <label asp-for="Cliente" class="control-label"></label>
-            @*<input asp-for="Cliente" class="form-control" />*@
             @foreach (var item in MecProj.Controllers.ClientesController.GetClientes())
             {
                 <select asp-for="Cliente" class="form-control">
@@ -265,7 +217,7 @@
         <div class="form-row form-group col-md-10">
             <div class="form-group col-md-6">
                 <label asp-for="CPF_CNPJ" class="control-label">CPF/CNPJ</label>
-                <input asp-for="CPF_CNPJ" class="form-control" placeholder="CPF ou CNPJ"/>
+                <input asp-for="CPF_CNPJ" class="form-control" placeholder="CPF ou CNPJ" />
                 <span asp-validation-for="CPF_CNPJ" class="text-danger"></span>
             </div>
             <div class="form-group col-md-6">
@@ -280,7 +232,7 @@
         <div class="form-row form-group col-md-10">
             <div class="form-group col-md-7">
                 <label asp-for="Marca_Veiculo" class="control-label">Marca</label>
-                <select asp-for="Marca_Veiculo" id="marca" class="form-control" onchange="buscaCarros(this.value)">
+                <select asp-for="Marca_Veiculo" id="estado" class="form-control" onchange="buscaCidades(this.value)">
                     <option value="" hidden selected>Selecionar</option>
                     <option value="Fiat">Fiat</option>
                     <option value="Ford">Ford</option>
@@ -292,7 +244,7 @@
 
             <div class="form-group col-md-5">
                 <label asp-for="Modelo_Veiculo" class="control-label">Modelo</label>
-                <select asp-for="Modelo_Veiculo" class="form-control" id="carro">
+                <select asp-for="Modelo_Veiculo" class="form-control" id="cidade">
                     <option value="" hidden selected>Selecionar</option>
                 </select>
                 <span asp-validation-for="Modelo_Veiculo" class="text-danger"></span>
@@ -300,7 +252,7 @@
 
             <div class="form-group col-md-4">
                 <label asp-for="Ano_Veiculo" class="control-label">Ano</label>
-                <input asp-for="Ano_Veiculo" type="number" min="1995" class="form-control" placeholder="Ex.: 2015" />
+                <input asp-for="Ano_Veiculo" type="number" min="1995" class="form-control" placeholder="Ano Carro" />
                 <span asp-validation-for="Ano_Veiculo" class="text-danger"></span>
             </div>
             <div class="form-group col-md-8">
@@ -311,20 +263,20 @@
         </div>
         <h4>Entrada do Veículo :</h4>
         <div class="form-row col-md-10">
-        <div class="form-group col-md-6">
-            <label asp-for="Entrada" class="control-label"></label>
-            <input asp-for="Entrada" class="form-control" />
-            <span asp-validation-for="Entrada" class="text-danger"></span>
-        </div>
-        <div class="form-group col-md-6">
-            <label asp-for="Situacao" class="control-label"></label>
-            <select asp-for="Situacao" class="form-control">
-                <option value="Pendente" selected>Pendente</option>
-                <option value="Não Aprovado">Não Aprovado</option>
-                <option value="Concluído">Concluído</option>
-            </select>
-            <span asp-validation-for="Situacao" class="text-danger"></span>
-        </div>
+            <div class="form-group col-md-5">
+                <label asp-for="Entrada" class="control-label"></label>
+                <input type="datetime" asp-for="Entrada" class="form-control" value="@DateTime.Today.ToShortDateString()" />
+                <span asp-validation-for="Entrada" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-7">
+                <label asp-for="Situacao" class="control-label"></label>
+                <select asp-for="Situacao" class="form-control">
+                    <option value="Pendente" selected>Pendente</option>
+                    <option value="Não Aprovado">Não Aprovado</option>
+                    <option value="Concluído">Concluído</option>
+                </select>
+                <span asp-validation-for="Situacao" class="text-danger"></span>
+            </div>
         </div>
 
         <h4>Dados Serviço:</h4>
@@ -344,14 +296,24 @@
             <span asp-validation-for="Pecas" class="text-danger"></span>
         </div>
 
-        <div class="form-group col-md-4">
-            <label asp-for="Valor_Total" class="control-label">Valor Total</label>
-            <input asp-for="Valor_Total" class="form-control" placeholder="R$ 0,00" />
-            <span asp-validation-for="Valor_Total" class="text-danger"></span>
+
+
+
+
+
+        <div class="form-row form-group cold-md-5">
+            <div class="form-group col-md-1">
+                <label id="cifrao" asp-for="Valor_Total" class="control-label"><b>R$</b></label>
+            </div>
+            <div class="form-group col-md-3">
+                <input asp-for="Valor_Total" type="text" class="form-control" placeholder="Valor Total" onKeyPress="MascaraGenerica(this, 'MOEDA')" />
+                <span asp-validation-for="Valor_Total" class="text-danger"></span>
+            </div>
         </div>
+
         <br />
         <div class="form-group">
-            <input type="submit" value="Emitir" class="btn btn-primary" /> ||
+            <input type="submit" value="Emitir" class="btn btn-primary" />
             <a class="btn btn-info" asp-action="Index">Voltar a lista</a>
         </div>
     </form>

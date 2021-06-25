@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MecProj.Migrations
 {
     [DbContext(typeof(MDRContext))]
-    [Migration("20210625004508_Ajustes")]
-    partial class Ajustes
+    [Migration("20210625125232_Inicials")]
+    partial class Inicials
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -47,7 +47,6 @@ namespace MecProj.Migrations
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Email")
-                        .IsRequired()
                         .HasMaxLength(30)
                         .HasColumnType("nvarchar(30)");
 
@@ -119,7 +118,7 @@ namespace MecProj.Migrations
                     b.Property<int>("Numero")
                         .HasColumnType("int");
 
-                    b.Property<string>("Razão_Social")
+                    b.Property<string>("Razao_Social")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -198,6 +197,7 @@ namespace MecProj.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Ano_Veiculo")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("CPF_CNPJ")
@@ -238,6 +238,7 @@ namespace MecProj.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Telefone_Celular")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Valor_Total")

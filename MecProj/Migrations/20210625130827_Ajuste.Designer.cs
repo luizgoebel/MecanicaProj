@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MecProj.Migrations
 {
     [DbContext(typeof(MDRContext))]
-    [Migration("20210624204401_Inincial")]
-    partial class Inincial
+    [Migration("20210625130827_Ajuste")]
+    partial class Ajuste
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -47,7 +47,6 @@ namespace MecProj.Migrations
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Email")
-                        .IsRequired()
                         .HasMaxLength(30)
                         .HasColumnType("nvarchar(30)");
 
@@ -95,12 +94,15 @@ namespace MecProj.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Bairro")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Cidade")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Cnpj")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Complemento")
@@ -110,18 +112,22 @@ namespace MecProj.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Estado")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("Numero")
                         .HasColumnType("int");
 
-                    b.Property<string>("Razão_Social")
+                    b.Property<string>("Razao_Social")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Rua")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Telefone_Celular")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Telefone_Recado")
@@ -191,6 +197,7 @@ namespace MecProj.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Ano_Veiculo")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("CPF_CNPJ")
@@ -231,10 +238,11 @@ namespace MecProj.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Telefone_Celular")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Valor_Total")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<decimal>("Valor_Total")
+                        .HasColumnType("decimal(18,2)");
 
                     b.HasKey("Id");
 

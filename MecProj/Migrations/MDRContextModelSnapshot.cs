@@ -195,6 +195,7 @@ namespace MecProj.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Ano_Veiculo")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("CPF_CNPJ")
@@ -235,10 +236,11 @@ namespace MecProj.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Telefone_Celular")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Valor_Total")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<decimal>("Valor_Total")
+                        .HasColumnType("decimal(18,2)");
 
                     b.HasKey("Id");
 

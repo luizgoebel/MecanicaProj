@@ -882,6 +882,16 @@ C:\Users\goebe\Source\Repos\MecanicaProj\MecProj\obj\Debug\net5.0\ref\MecProj.dl
 C:\Users\goebe\Source\Repos\MecanicaProj\MecProj\obj\Debug\net5.0\MecProj.pdb
 C:\Users\goebe\Source\Repos\MecanicaProj\MecProj\obj\Debug\net5.0\MecProj.genruntimeconfig.cache
 C:\Users\goebe\Source\Repos\MecanicaProj\MecProj\obj\Debug\net5.0\MecProj.csproj.AssemblyReference.cache
+C:\Users\goebe\Source\Repos\MecanicaProj\MecProj\obj\Debug\net5.0\Razor\Views\Empresas\Create.cshtml.g.cs
+C:\Users\goebe\Source\Repos\MecanicaProj\MecProj\obj\Debug\net5.0\Razor\Views\Empresas\Delete.cshtml.g.cs
+C:\Users\goebe\Source\Repos\MecanicaProj\MecProj\obj\Debug\net5.0\Razor\Views\Empresas\Details.cshtml.g.cs
+C:\Users\goebe\Source\Repos\MecanicaProj\MecProj\obj\Debug\net5.0\Razor\Views\Empresas\Edit.cshtml.g.cs
+C:\Users\goebe\Source\Repos\MecanicaProj\MecProj\obj\Debug\net5.0\Razor\Views\Empresas\Index.cshtml.g.cs
+C:\Users\goebe\Source\Repos\MecanicaProj\MecProj\obj\Debug\net5.0\Razor\Views\OrdemServicoes\Create.cshtml.g.cs
+C:\Users\goebe\Source\Repos\MecanicaProj\MecProj\obj\Debug\net5.0\Razor\Views\OrdemServicoes\Delete.cshtml.g.cs
+C:\Users\goebe\Source\Repos\MecanicaProj\MecProj\obj\Debug\net5.0\Razor\Views\OrdemServicoes\Details.cshtml.g.cs
+C:\Users\goebe\Source\Repos\MecanicaProj\MecProj\obj\Debug\net5.0\Razor\Views\OrdemServicoes\Edit.cshtml.g.cs
+C:\Users\goebe\Source\Repos\MecanicaProj\MecProj\obj\Debug\net5.0\Razor\Views\OrdemServicoes\Index.cshtml.g.cs
 C:\Users\Luiz Goebel\Source\Repos\MecanicaProj\MecProj\bin\Debug\net5.0\appsettings.Development.json
 C:\Users\Luiz Goebel\Source\Repos\MecanicaProj\MecProj\bin\Debug\net5.0\appsettings.json
 C:\Users\Luiz Goebel\Source\Repos\MecanicaProj\MecProj\bin\Debug\net5.0\MecProj.exe
@@ -1297,6 +1307,11 @@ C:\Users\Luiz Goebel\Source\Repos\MecanicaProj\MecProj\obj\Debug\net5.0\scopedcs
 C:\Users\Luiz Goebel\Source\Repos\MecanicaProj\MecProj\obj\Debug\net5.0\MecProj.TagHelpers.input.cache
 C:\Users\Luiz Goebel\Source\Repos\MecanicaProj\MecProj\obj\Debug\net5.0\MecProj.TagHelpers.output.cache
 C:\Users\Luiz Goebel\Source\Repos\MecanicaProj\MecProj\obj\Debug\net5.0\MecProj.RazorCoreGenerate.cache
+C:\Users\Luiz Goebel\Source\Repos\MecanicaProj\MecProj\obj\Debug\net5.0\Razor\Views\Empresas\Create.cshtml.g.cs
+C:\Users\Luiz Goebel\Source\Repos\MecanicaProj\MecProj\obj\Debug\net5.0\Razor\Views\Empresas\Delete.cshtml.g.cs
+C:\Users\Luiz Goebel\Source\Repos\MecanicaProj\MecProj\obj\Debug\net5.0\Razor\Views\Empresas\Details.cshtml.g.cs
+C:\Users\Luiz Goebel\Source\Repos\MecanicaProj\MecProj\obj\Debug\net5.0\Razor\Views\Empresas\Edit.cshtml.g.cs
+C:\Users\Luiz Goebel\Source\Repos\MecanicaProj\MecProj\obj\Debug\net5.0\Razor\Views\Empresas\Index.cshtml.g.cs
 C:\Users\Luiz Goebel\Source\Repos\MecanicaProj\MecProj\obj\Debug\net5.0\Razor\Views\Fornecedors\Create.cshtml.g.cs
 C:\Users\Luiz Goebel\Source\Repos\MecanicaProj\MecProj\obj\Debug\net5.0\Razor\Views\Fornecedors\Delete.cshtml.g.cs
 C:\Users\Luiz Goebel\Source\Repos\MecanicaProj\MecProj\obj\Debug\net5.0\Razor\Views\Fornecedors\Details.cshtml.g.cs
@@ -1304,6 +1319,11 @@ C:\Users\Luiz Goebel\Source\Repos\MecanicaProj\MecProj\obj\Debug\net5.0\Razor\Vi
 C:\Users\Luiz Goebel\Source\Repos\MecanicaProj\MecProj\obj\Debug\net5.0\Razor\Views\Fornecedors\Index.cshtml.g.cs
 C:\Users\Luiz Goebel\Source\Repos\MecanicaProj\MecProj\obj\Debug\net5.0\Razor\Views\Home\Index.cshtml.g.cs
 C:\Users\Luiz Goebel\Source\Repos\MecanicaProj\MecProj\obj\Debug\net5.0\Razor\Views\Home\Privacy.cshtml.g.cs
+C:\Users\Luiz Goebel\Source\Repos\MecanicaProj\MecProj\obj\Debug\net5.0\Razor\Views\OrdemServicoes\Create.cshtml.g.cs
+C:\Users\Luiz Goebel\Source\Repos\MecanicaProj\MecProj\obj\Debug\net5.0\Razor\Views\OrdemServicoes\Delete.cshtml.g.cs
+C:\Users\Luiz Goebel\Source\Repos\MecanicaProj\MecProj\obj\Debug\net5.0\Razor\Views\OrdemServicoes\Details.cshtml.g.cs
+C:\Users\Luiz Goebel\Source\Repos\MecanicaProj\MecProj\obj\Debug\net5.0\Razor\Views\OrdemServicoes\Edit.cshtml.g.cs
+C:\Users\Luiz Goebel\Source\Repos\MecanicaProj\MecProj\obj\Debug\net5.0\Razor\Views\OrdemServicoes\Index.cshtml.g.cs
 C:\Users\Luiz Goebel\Source\Repos\MecanicaProj\MecProj\obj\Debug\net5.0\Razor\Views\Shared\Error.cshtml.g.cs
 C:\Users\Luiz Goebel\Source\Repos\MecanicaProj\MecProj\obj\Debug\net5.0\Razor\Views\Shared\Menu.cshtml.g.cs
 C:\Users\Luiz Goebel\Source\Repos\MecanicaProj\MecProj\obj\Debug\net5.0\Razor\Views\Shared\TopNav.cshtml.g.cs
@@ -1320,23 +1340,3 @@ C:\Users\Luiz Goebel\Source\Repos\MecanicaProj\MecProj\obj\Debug\net5.0\ref\MecP
 C:\Users\Luiz Goebel\Source\Repos\MecanicaProj\MecProj\obj\Debug\net5.0\MecProj.pdb
 C:\Users\Luiz Goebel\Source\Repos\MecanicaProj\MecProj\obj\Debug\net5.0\MecProj.genruntimeconfig.cache
 C:\Users\Luiz Goebel\Source\Repos\MecanicaProj\MecProj\obj\Debug\net5.0\MecProj.csproj.AssemblyReference.cache
-C:\Users\Luiz Goebel\Source\Repos\MecanicaProj\MecProj\obj\Debug\net5.0\Razor\Views\Empresas\Create.cshtml.g.cs
-C:\Users\Luiz Goebel\Source\Repos\MecanicaProj\MecProj\obj\Debug\net5.0\Razor\Views\Empresas\Delete.cshtml.g.cs
-C:\Users\Luiz Goebel\Source\Repos\MecanicaProj\MecProj\obj\Debug\net5.0\Razor\Views\Empresas\Details.cshtml.g.cs
-C:\Users\Luiz Goebel\Source\Repos\MecanicaProj\MecProj\obj\Debug\net5.0\Razor\Views\Empresas\Edit.cshtml.g.cs
-C:\Users\Luiz Goebel\Source\Repos\MecanicaProj\MecProj\obj\Debug\net5.0\Razor\Views\Empresas\Index.cshtml.g.cs
-C:\Users\goebe\Source\Repos\MecanicaProj\MecProj\obj\Debug\net5.0\Razor\Views\Empresas\Create.cshtml.g.cs
-C:\Users\goebe\Source\Repos\MecanicaProj\MecProj\obj\Debug\net5.0\Razor\Views\Empresas\Delete.cshtml.g.cs
-C:\Users\goebe\Source\Repos\MecanicaProj\MecProj\obj\Debug\net5.0\Razor\Views\Empresas\Details.cshtml.g.cs
-C:\Users\goebe\Source\Repos\MecanicaProj\MecProj\obj\Debug\net5.0\Razor\Views\Empresas\Edit.cshtml.g.cs
-C:\Users\goebe\Source\Repos\MecanicaProj\MecProj\obj\Debug\net5.0\Razor\Views\Empresas\Index.cshtml.g.cs
-C:\Users\Luiz Goebel\Source\Repos\MecanicaProj\MecProj\obj\Debug\net5.0\Razor\Views\OrdemServicoes\Create.cshtml.g.cs
-C:\Users\Luiz Goebel\Source\Repos\MecanicaProj\MecProj\obj\Debug\net5.0\Razor\Views\OrdemServicoes\Delete.cshtml.g.cs
-C:\Users\Luiz Goebel\Source\Repos\MecanicaProj\MecProj\obj\Debug\net5.0\Razor\Views\OrdemServicoes\Details.cshtml.g.cs
-C:\Users\Luiz Goebel\Source\Repos\MecanicaProj\MecProj\obj\Debug\net5.0\Razor\Views\OrdemServicoes\Edit.cshtml.g.cs
-C:\Users\Luiz Goebel\Source\Repos\MecanicaProj\MecProj\obj\Debug\net5.0\Razor\Views\OrdemServicoes\Index.cshtml.g.cs
-C:\Users\goebe\Source\Repos\MecanicaProj\MecProj\obj\Debug\net5.0\Razor\Views\OrdemServicoes\Create.cshtml.g.cs
-C:\Users\goebe\Source\Repos\MecanicaProj\MecProj\obj\Debug\net5.0\Razor\Views\OrdemServicoes\Delete.cshtml.g.cs
-C:\Users\goebe\Source\Repos\MecanicaProj\MecProj\obj\Debug\net5.0\Razor\Views\OrdemServicoes\Details.cshtml.g.cs
-C:\Users\goebe\Source\Repos\MecanicaProj\MecProj\obj\Debug\net5.0\Razor\Views\OrdemServicoes\Edit.cshtml.g.cs
-C:\Users\goebe\Source\Repos\MecanicaProj\MecProj\obj\Debug\net5.0\Razor\Views\OrdemServicoes\Index.cshtml.g.cs

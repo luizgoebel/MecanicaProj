@@ -30,9 +30,22 @@ namespace MecProj.Controllers
         public static List<Cliente> GetClientes()
         {
             List<Cliente> lista = new List<Cliente>();
+
             Cliente cli = new()
             {
-                Nome="Luiz Eduardo Goebel"
+                Nome = "Luiz Eduardo Goebel",
+                Cpf = "999.999.999-99",
+                Email = "goebel@goebel.com",
+                TelefoneCelular = "(47) 991832512",
+                TelefoneRecado = "(47) 991832512",
+                Estado = "Santa Catarina",
+                Cidade = "Blumenau",
+                Bairro = "Salto",
+                Rua = "Peru vaz de Caminha",
+                Numero = 1200,
+                Complemento = "Ap. 104"
+
+
             };
             lista.Add(cli);
             return lista;

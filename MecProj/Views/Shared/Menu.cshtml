@@ -63,49 +63,65 @@
             <br />
 
             @*<li class="menu">
-                    <a aria-expanded="false" class="dropdown-toggle" href="/Customer/Dashboard">
-                        <div class="">
-                            <i class="far fa-chart-bar"></i>
+            <a aria-expanded="false" class="dropdown-toggle" href="/Customer/Dashboard">
+                <div class="">
+                    <i class="far fa-chart-bar"></i>
 
-                            <span>Entradas Notas</span>
-                        </div>
-                    </a>
-                </li>*@
-
-            @*<li class="menu">
-                    <a aria-expanded="false" class="dropdown-toggle" href="/Customer/Dashboard">
-                        <div class="">
-                            <i class="far fa-chart-bar"></i>
-
-                            <span>Saídas Notas</span>
-                        </div>
-                    </a>
-                </li>*@
-
-
-
+                    <span>Entradas Notas</span>
+                </div>
+            </a>
+        </li>*@
 
             @*<li class="menu">
-                    <a aria-expanded="false" class="dropdown-toggle" href="/Quotations">
-                        <div class="">
-                            <i class="far fa-list-alt"></i>
-                            <span>Emitir Recibo</span>
-                        </div>
-                    </a>
-                </li>*@
+            <a aria-expanded="false" class="dropdown-toggle" href="/Customer/Dashboard">
+                <div class="">
+                    <i class="far fa-chart-bar"></i>
+
+                    <span>Saídas Notas</span>
+                </div>
+            </a>
+        </li>*@
+
+
 
 
             @*<li class="menu">
-                    <a aria-expanded="false" class="dropdown-toggle" href="~/OrdemServicoes/Index">
-                        <div class="">
-                            <i class="far fa-list-alt"></i>
-                            <span>Ordem Serviço</span>
-                        </div>
-                    </a>
-                </li>*@
+            <a aria-expanded="false" class="dropdown-toggle" href="/Quotations">
+                <div class="">
+                    <i class="far fa-list-alt"></i>
+                    <span>Emitir Recibo</span>
+                </div>
+            </a>
+        </li>*@
+
+
+            @*<li class="menu">
+            <a aria-expanded="false" class="dropdown-toggle" href="~/OrdemServicoes/Index">
+                <div class="">
+                    <i class="far fa-list-alt"></i>
+                    <span>Ordem Serviço</span>
+                </div>
+            </a>
+        </li>*@
 
 
 
+
+            <li class="menu" id="main">
+                <a class="dropdown-toggle dropbtn" href="#cadastros" data-toggle="collapse">
+                    <div>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file"><path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path><polyline points="13 2 13 9 20 9"></polyline></svg>
+                        <span>Ordens Serviço</span>
+                    </div>
+                </a>
+                <ul class="collapse submenu list-unstyled dropdown-content" id="cadastros" data-parent="#accordionExample">
+                    <li><a href="~/OrdemServicoes/Index"> <i class="fas fa-user-clock"></i> Todas</a></li>
+                    <li><a href="~/OrdemServicoes/NotAcept"> <i class="fas fa-user-clock"></i> Pendentes</a></li>
+                    <li><a href="~/OrdemServicoes/NotAcept"> <i class="fas fa-user-check"></i> Concluídos</a></li>
+                    <li><a href="~/OrdemServicoes/NotAcept"> <i class="fas fa-user-minus"></i> Reprovados</a></li>
+                </ul>
+            </li>
+            <br />
             <li class="menu" id="main">
                 <a class="dropdown-toggle dropbtn" href="#cadastros" data-toggle="collapse">
                     <div>
@@ -121,42 +137,28 @@
                     <li><a href="~/Fornecedors/Index"> <i class="fas fa-truck"></i> Fornecedores</a></li>
                 </ul>
             </li>
-            <br />
-            <li class="menu" id="main">
-                <a class="dropdown-toggle dropbtn" href="#cadastros" data-toggle="collapse">
-                    <div>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file"><path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path><polyline points="13 2 13 9 20 9"></polyline></svg>
-                        <span>Ordens Serviço</span>
-                    </div>
-                </a>
-                <ul class="collapse submenu list-unstyled dropdown-content" id="cadastros" data-parent="#accordionExample">
-                    <li><a href="~/OrdemServicoes/Index"> <i class="fas fa-user-clock"></i> Todas</a></li>
-                    <li><a href="~/OrdemServicoes/NotAcept"> <i class="fas fa-user-clock"></i> Pendentes</a></li>
-                    <li><a href="~/OrdemServicoes/NotAcept"> <i class="fas fa-user-check"></i> Concluídos</a></li>
-                    <li><a href="~/OrdemServicoes/NotAcept"> <i class="fas fa-user-minus"></i> Reprovados</a></li>
-                </ul>
-            </li>
+
 
 
 
 
             @*<li class="menu" id="main">
-                    <a href="#commodities" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle dropbtn">
-                        <div class="">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-box"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
-                            <span>Commodities</span>
-                        </div>
-                        <div>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right"><polyline points="9 18 15 12 9 6"></polyline></svg>
-                        </div>
-                    </a>
-                    <ul class="collapse submenu list-unstyled dropdown-content" id="commodities" data-parent="#accordionExample">
-                        <li><a href="~/Categories">Categorias</a></li>
-                        <li> <a href="~/Products">Commodities</a></li>
-                        <li> <a href="~/Products/PriceUpdate">Atualização de Dados</a></li>
+            <a href="#commodities" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle dropbtn">
+                <div class="">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-box"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
+                    <span>Commodities</span>
+                </div>
+                <div>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </div>
+            </a>
+            <ul class="collapse submenu list-unstyled dropdown-content" id="commodities" data-parent="#accordionExample">
+                <li><a href="~/Categories">Categorias</a></li>
+                <li> <a href="~/Products">Commodities</a></li>
+                <li> <a href="~/Products/PriceUpdate">Atualização de Dados</a></li>
 
-                    </ul>
-                </li>*@
+            </ul>
+        </li>*@
 
 
 

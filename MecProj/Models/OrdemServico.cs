@@ -28,7 +28,9 @@ namespace MecProj.Models
         public string Service { get; set; }
         public string Descricao { get; set; }
         public string Pecas { get; set; }
+
         public string Valor_Total { get; set; }
+
         [DataType(DataType.Date)]
         [Required(ErrorMessage = "Informe a Data de Entrada.")]
         public DateTime Entrada { get; set; }
